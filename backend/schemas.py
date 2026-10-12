@@ -1,3 +1,4 @@
+
 from datetime import date
 from typing import Literal
 
@@ -12,6 +13,7 @@ class UserCreate(BaseModel):
     name: str
     email: EmailStr
     password: str
+    location: str
 
 
 class UserLogin(BaseModel):
@@ -23,6 +25,7 @@ class UserResponse(BaseModel):
     id: int
     name: str
     email: EmailStr
+    location: str
 
     class Config:
         from_attributes = True

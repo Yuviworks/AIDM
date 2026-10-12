@@ -1,4 +1,15 @@
-from sqlalchemy import Column, Integer, String, Date, ForeignKey
+
+from datetime import date
+
+from sqlalchemy import (
+    Column,
+    Integer,
+    String,
+    Date,
+    ForeignKey,
+    UniqueConstraint,
+)
+
 from .database import Base
 
 
@@ -9,6 +20,7 @@ class User(Base):
     name = Column(String, nullable=False)
     email = Column(String, unique=True, nullable=False)
     password = Column(String, nullable=False)
+    location = Column(String, nullable=False, default="Pune")
 
 
 class Appliance(Base):
@@ -26,6 +38,7 @@ class Appliance(Base):
 
     maintenance_interval = Column(Integer, nullable=False)
 
+
 class Booking(Base):
     __tablename__ = "bookings"
 
@@ -37,7 +50,35 @@ class Booking(Base):
     service_center_id = Column(Integer, nullable=False)
 
     booking_date = Column(Date, nullable=False)
-
     booking_slot = Column(String, nullable=True)
 
     status = Column(String, default="CONFIRMED")
+
+
+class MaintenanceProposal(Base):
+    __tablename__ = "maintenance_proposals"
+
+    __table_args__ = (
+        UniqueConstraint(
+            "appliance_id",
+            "maintenance_due_date",
+            name="uq_appliance_maintenance_due_date",
+        ),
+    )
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    appliance_id = Column(
+        Integer,
+        ForeignKey("appliances.id"),
+        nullable=False,
+    )
+
+    maintenance_due_date = Column(Date, nullable=False)
+    proposed_date = Column(Date, nullable=True)
+    proposed_slot = Column(String, nullable=True)
+    service_center_id = Column(Integer, nullable=True)
+
+    status = Column(String, nullable=False, default="PENDING")
+    created_at = Column(Date, nullable=False, default=date.today)

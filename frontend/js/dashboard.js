@@ -3,6 +3,11 @@ const API_URL = "http://127.0.0.1:8000";
 const userId = localStorage.getItem("user_id");
 const userName = localStorage.getItem("user_name");
 
+// Use the location saved during registration.
+// Falls back to Pune for existing accounts without a saved location.
+const userLocation =
+    localStorage.getItem("user_location") || "Pune";
+
 let appliances = [];
 let appliance = null;
 
@@ -14,7 +19,6 @@ if (!userId) {
     window.location.href = "index.html";
 }
 
-
 /* =========================================================
    WELCOME USER
    ========================================================= */
@@ -22,39 +26,27 @@ if (!userId) {
 const welcomeUser = document.getElementById("welcomeUser");
 
 if (welcomeUser) {
-    welcomeUser.textContent =
-        `Welcome, ${userName || "User"}`;
+    welcomeUser.textContent = `Welcome, ${userName || "User"}`;
 }
-
 
 /* =========================================================
    LOGOUT
    ========================================================= */
 
-const logoutButton =
-    document.getElementById("logoutButton");
+const logoutButton = document.getElementById("logoutButton");
 
 if (logoutButton) {
-
-    logoutButton.addEventListener(
-        "click",
-        function () {
-
-            localStorage.clear();
-
-            window.location.href =
-                "index.html";
-        }
-    );
+    logoutButton.addEventListener("click", function () {
+        localStorage.clear();
+        window.location.href = "index.html";
+    });
 }
-
 
 /* =========================================================
    HELPER FUNCTIONS
    ========================================================= */
 
 function escapeHtml(value) {
-
     return String(value ?? "")
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -63,16 +55,22 @@ function escapeHtml(value) {
         .replace(/'/g, "&#039;");
 }
 
+async function readResponse(response) {
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+        throw new Error(
+            data.detail || `Request failed with status ${response.status}`
+        );
+    }
+
+    return data;
+}
 
 function getApplianceIcon(type) {
+    const value = String(type || "").toLowerCase();
 
-    const value =
-        String(type || "").toLowerCase();
-
-    if (
-        value.includes("water") ||
-        value.includes("purifier")
-    ) {
+    if (value.includes("water") || value.includes("purifier")) {
         return "bi-droplet-half";
     }
 
@@ -91,1350 +89,558 @@ function getApplianceIcon(type) {
     return "bi-cpu";
 }
 
-
 /* =========================================================
    UPDATE APPLIANCE OVERVIEW
    ========================================================= */
 
 function updateApplianceOverview() {
-
     if (!appliance) {
         return;
     }
 
-    const applianceType =
-        document.getElementById("applianceType");
+    const fields = {
+        applianceType: appliance.appliance_type,
+        applianceBrand: appliance.brand,
+        applianceModel: appliance.model,
+        lastService: appliance.last_service_date
+    };
 
-    const applianceBrand =
-        document.getElementById("applianceBrand");
+    Object.entries(fields).forEach(([id, value]) => {
+        const element = document.getElementById(id);
 
-    const applianceModel =
-        document.getElementById("applianceModel");
+        if (element) {
+            element.textContent = value ?? "-";
+        }
+    });
 
-    const lastService =
-        document.getElementById("lastService");
-
-
-    if (applianceType) {
-
-        applianceType.textContent =
-            appliance.appliance_type;
-    }
-
-
-    if (applianceBrand) {
-
-        applianceBrand.textContent =
-            appliance.brand;
-    }
-
-
-    if (applianceModel) {
-
-        applianceModel.textContent =
-            appliance.model;
-    }
-
-
-    if (lastService) {
-
-        lastService.textContent =
-            appliance.last_service_date;
-    }
-
-
-    const icon =
-        document.querySelector(
-            ".appliance-main-icon i"
-        );
-
+    const icon = document.querySelector(".appliance-main-icon i");
 
     if (icon) {
-
-        icon.className =
-            `bi ${getApplianceIcon(
-                appliance.appliance_type
-            )}`;
+        icon.className = `bi ${getApplianceIcon(appliance.appliance_type)}`;
     }
 }
-
 
 /* =========================================================
    ASK AIDM — MODEL-SPECIFIC RAG
    ========================================================= */
 
 function updateAskAIDMModel() {
-
-    const modelElement =
-        document.getElementById("askAIDMModel");
+    const modelElement = document.getElementById("askAIDMModel");
 
     if (!modelElement) {
         return;
     }
 
-    if (!appliance) {
-
-        modelElement.textContent =
-            "No purifier selected";
-
-        return;
-    }
-
-    modelElement.textContent =
-        `${appliance.brand} ${appliance.model}`;
+    modelElement.textContent = appliance
+        ? `${appliance.brand} ${appliance.model}`
+        : "No purifier selected";
 }
 
-
-/* =========================================================
-   RESET ASK AIDM
-   ========================================================= */
-
 function resetAskAIDM() {
+    const questionInput = document.getElementById("aidmQuestion");
+    const result = document.getElementById("aidmQuestionResult");
+    const answer = document.getElementById("aidmQuestionAnswer");
+    const source = document.getElementById("aidmQuestionSource");
+    const button = document.getElementById("askAIDMButton");
 
-    const questionInput =
-        document.getElementById("aidmQuestion");
-
-    const result =
-        document.getElementById("aidmQuestionResult");
-
-    const answer =
-        document.getElementById("aidmQuestionAnswer");
-
-    const source =
-        document.getElementById("aidmQuestionSource");
-
-    const button =
-        document.getElementById("askAIDMButton");
-
-
-    if (questionInput) {
-        questionInput.value = "";
-    }
-
-
-    if (result) {
-        result.style.display = "none";
-    }
-
-
-    if (answer) {
-        answer.innerHTML = "";
-    }
-
-
-    if (source) {
-        source.textContent = "";
-    }
-
+    if (questionInput) questionInput.value = "";
+    if (result) result.style.display = "none";
+    if (answer) answer.innerHTML = "";
+    if (source) source.textContent = "";
 
     if (button) {
-
         button.disabled = false;
-
-        button.innerHTML =
-            "🤖 Ask AIDM";
+        button.innerHTML = "🤖 Ask AIDM";
     }
-
 
     updateAskAIDMModel();
 }
 
-
-/* =========================================================
-   FORMAT AI RESPONSE
-   ========================================================= */
-
 function formatAIResponse(text) {
-
-    return escapeHtml(text)
-        .replace(/\n/g, "<br>");
+    return escapeHtml(text).replace(/\n/g, "<br>");
 }
 
-
-/* =========================================================
-   ASK AIDM
-   ========================================================= */
-
 async function askAIDM() {
-
     if (!appliance) {
-
-        alert(
-            "Please select a purifier first."
-        );
-
+        alert("Please select a purifier first.");
         return;
     }
 
+    const questionInput = document.getElementById("aidmQuestion");
+    const button = document.getElementById("askAIDMButton");
+    const result = document.getElementById("aidmQuestionResult");
+    const answer = document.getElementById("aidmQuestionAnswer");
+    const source = document.getElementById("aidmQuestionSource");
 
-    const questionInput =
-        document.getElementById("aidmQuestion");
+    if (!questionInput) return;
 
-    const button =
-        document.getElementById("askAIDMButton");
-
-    const result =
-        document.getElementById("aidmQuestionResult");
-
-    const answer =
-        document.getElementById("aidmQuestionAnswer");
-
-    const source =
-        document.getElementById("aidmQuestionSource");
-
-
-    if (!questionInput) {
-        return;
-    }
-
-
-    const question =
-        questionInput.value.trim();
-
+    const question = questionInput.value.trim();
 
     if (!question) {
-
-        alert(
-            "Please enter a question."
-        );
-
+        alert("Please enter a question.");
         questionInput.focus();
-
         return;
     }
 
-
-    /*
-       Store the appliance/model used for this request.
-       This prevents an old response from being displayed
-       if the user changes the selected appliance while
-       the RAG request is running.
-    */
-
-    const requestedApplianceId =
-        Number(appliance.id);
-
-    const requestedModel =
-        appliance.model;
-
+    const requestedApplianceId = Number(appliance.id);
+    const requestedModel = appliance.model;
 
     if (button) {
-
         button.disabled = true;
-
-        button.innerHTML =
-            "⏳ AIDM is thinking...";
+        button.innerHTML = "⏳ AIDM is thinking...";
     }
 
-
-    if (result) {
-        result.style.display = "block";
-    }
-
+    if (result) result.style.display = "block";
 
     if (answer) {
-
         answer.innerHTML = `
             <div class="text-muted">
-
-                Searching the
-                ${escapeHtml(appliance.brand)}
-                ${escapeHtml(appliance.model)}
-                maintenance manual...
-
+                Searching the ${escapeHtml(appliance.brand)}
+                ${escapeHtml(appliance.model)} maintenance manual...
             </div>
         `;
     }
 
-
-    if (source) {
-        source.textContent = "";
-    }
-
+    if (source) source.textContent = "";
 
     try {
+        const response = await fetch(`${API_URL}/rag/explain`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                query: question,
+                model: requestedModel
+            })
+        });
 
-        const response =
-            await fetch(
-                `${API_URL}/rag/explain`,
-                {
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body: JSON.stringify({
-
-                        query:
-                            question,
-
-                        model:
-                            requestedModel
-                    })
-                }
-            );
-
-
-        const data =
-            await response.json();
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                data.detail ||
-                "Unable to get an answer from AIDM."
-            );
-        }
-
-
-        /*
-           Do not display the answer if the user
-           changed the selected appliance while
-           the request was running.
-        */
+        const data = await readResponse(response);
 
         if (
             !appliance ||
-            Number(appliance.id) !==
-                requestedApplianceId
+            Number(appliance.id) !== requestedApplianceId
         ) {
-
             return;
         }
 
-
         if (answer) {
-
-            answer.innerHTML =
-                formatAIResponse(
-                    data.answer ||
-                    "No answer was returned."
-                );
+            answer.innerHTML = formatAIResponse(
+                data.answer || "No answer was returned."
+            );
         }
 
-
         if (source) {
-
             source.textContent =
                 `Answer generated from the ${requestedModel} maintenance manual.`;
         }
-
-
     } catch (error) {
-
-        console.error(
-            "Ask AIDM Error:",
-            error
-        );
-
+        console.error("Ask AIDM Error:", error);
 
         if (answer) {
-
             answer.innerHTML = `
                 <div class="alert alert-danger mb-0">
-
-                    <strong>
-                        Unable to get an answer.
-                    </strong>
-
-                    <div class="mt-1">
-
-                        ${escapeHtml(
-                            error.message
-                        )}
-
-                    </div>
-
+                    <strong>Unable to get an answer.</strong>
+                    <div class="mt-1">${escapeHtml(error.message)}</div>
                 </div>
             `;
         }
 
-
-        if (source) {
-            source.textContent = "";
-        }
-
-
+        if (source) source.textContent = "";
     } finally {
-
         if (button) {
-
             button.disabled = false;
-
-            button.innerHTML =
-                "🤖 Ask AIDM";
+            button.innerHTML = "🤖 Ask AIDM";
         }
     }
 }
 
-
-/* =========================================================
-   ASK AIDM BUTTON
-   ========================================================= */
-
-const askAIDMButton =
-    document.getElementById(
-        "askAIDMButton"
-    );
-
+const askAIDMButton = document.getElementById("askAIDMButton");
 
 if (askAIDMButton) {
-
-    askAIDMButton.addEventListener(
-        "click",
-        askAIDM
-    );
+    askAIDMButton.addEventListener("click", askAIDM);
 }
 
-
-/* =========================================================
-   ASK AIDM CTRL + ENTER
-   ========================================================= */
-
-const aidmQuestion =
-    document.getElementById(
-        "aidmQuestion"
-    );
-
+const aidmQuestion = document.getElementById("aidmQuestion");
 
 if (aidmQuestion) {
-
-    aidmQuestion.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (
-                event.key === "Enter" &&
-                (event.ctrlKey || event.metaKey)
-            ) {
-
-                event.preventDefault();
-
-                askAIDM();
-            }
+    aidmQuestion.addEventListener("keydown", function (event) {
+        if (
+            event.key === "Enter" &&
+            (event.ctrlKey || event.metaKey)
+        ) {
+            event.preventDefault();
+            askAIDM();
         }
-    );
+    });
 }
-
 
 /* =========================================================
    RESET AI AGENT UI
    ========================================================= */
 
 function resetAgentUI() {
-
     agentServiceCenters = [];
-
     selectedAgentCenter = null;
-
     selectedAgentSlot = null;
 
+    const agentResults = document.getElementById("agentResults");
+    const confirmation = document.getElementById("agentConfirmation");
+    const bookingResult = document.getElementById("agentBookingResult");
+    const explanation = document.getElementById("agentExplanation");
+    const centerSelect = document.getElementById("agentServiceCenterSelect");
+    const slotSelect = document.getElementById("agentSlotSelect");
+    const distance = document.getElementById("agentServiceDistance");
+    const status = document.getElementById("agentStatus");
 
-    const agentResults =
-        document.getElementById(
-            "agentResults"
-        );
+    if (agentResults) agentResults.style.display = "none";
+    if (confirmation) confirmation.style.display = "none";
 
-    const agentConfirmation =
-        document.getElementById(
-            "agentConfirmation"
-        );
-
-    const agentBookingResult =
-        document.getElementById(
-            "agentBookingResult"
-        );
-
-    const agentExplanation =
-        document.getElementById(
-            "agentExplanation"
-        );
-
-    const centerSelect =
-        document.getElementById(
-            "agentServiceCenterSelect"
-        );
-
-    const slotSelect =
-        document.getElementById(
-            "agentSlotSelect"
-        );
-
-    const distance =
-        document.getElementById(
-            "agentServiceDistance"
-        );
-
-    const status =
-        document.getElementById(
-            "agentStatus"
-        );
-
-
-    if (agentResults) {
-
-        agentResults.style.display =
-            "none";
+    if (bookingResult) {
+        bookingResult.style.display = "none";
+        bookingResult.innerHTML = "";
     }
 
-
-    if (agentConfirmation) {
-
-        agentConfirmation.style.display =
-            "none";
-    }
-
-
-    if (agentBookingResult) {
-
-        agentBookingResult.style.display =
-            "none";
-
-        agentBookingResult.innerHTML =
-            "";
-    }
-
-
-    if (agentExplanation) {
-
-        agentExplanation.textContent =
-            "-";
-    }
-
+    if (explanation) explanation.textContent = "-";
 
     if (centerSelect) {
-
-        centerSelect.innerHTML = `
-            <option value="">
-                Select service center
-            </option>
-        `;
-
+        centerSelect.innerHTML =
+            '<option value="">Select service center</option>';
         centerSelect.value = "";
     }
 
-
     if (slotSelect) {
-
-        slotSelect.innerHTML = `
-            <option value="">
-                Select service slot
-            </option>
-        `;
-
+        slotSelect.innerHTML =
+            '<option value="">Select service slot</option>';
         slotSelect.disabled = true;
-
         slotSelect.value = "";
     }
 
-
-    if (distance) {
-
-        distance.textContent = "";
-    }
-
+    if (distance) distance.textContent = "";
 
     if (status) {
-
         status.innerHTML = `
             <div class="agent-status-inner">
-
                 <div class="agent-status-icon">
-
                     <i class="bi bi-stars"></i>
-
                 </div>
-
                 <div>
-
-                    <strong>
-                        Agent ready
-                    </strong>
-
-                    <p>
-                        Click "Run AI Agent" to analyze your selected appliance.
-                    </p>
-
+                    <strong>Agent ready</strong>
+                    <p>Click "Run AI Agent" to analyze your selected appliance.</p>
                 </div>
-
             </div>
         `;
     }
 
-
     window.aidmRecommendation = null;
 }
-
 
 /* =========================================================
    SELECT APPLIANCE
    ========================================================= */
 
-async function selectAppliance(
-    selectedId,
-    saveSelection = true
-) {
+async function selectAppliance(selectedId, saveSelection = true) {
+    const selected = appliances.find(
+        item => Number(item.id) === Number(selectedId)
+    );
 
-    const selected =
-        appliances.find(
-            item =>
-                Number(item.id) ===
-                Number(selectedId)
-        );
-
-
-    if (!selected) {
-        return;
-    }
-
+    if (!selected) return;
 
     appliance = selected;
 
-
     if (saveSelection) {
-
-        localStorage.setItem(
-            "selected_appliance",
-            appliance.id
-        );
+        localStorage.setItem("selected_appliance", appliance.id);
     }
 
-
     renderApplianceList();
-
     updateApplianceOverview();
-
     updateAskAIDMModel();
-
     resetAskAIDM();
-
     resetAgentUI();
 
     await loadMaintenance();
-
     await loadServiceCenters();
 }
-
 
 /* =========================================================
    LOAD ALL APPLIANCES
    ========================================================= */
 
 async function loadAppliances() {
-
     try {
+        const response = await fetch(
+            `${API_URL}/appliances/user/${encodeURIComponent(userId)}`
+        );
 
-        const response =
-            await fetch(
-                `${API_URL}/appliances/user/${userId}`
-            );
+        const data = await readResponse(response);
 
+        appliances = Array.isArray(data) ? data : [];
 
-        const data =
-            await response.json();
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                data.detail ||
-                "Unable to load appliances"
-            );
-        }
-
-
-        appliances =
-            Array.isArray(data)
-                ? data
-                : [];
-
-
-        const loadingMessage =
-            document.getElementById(
-                "loadingMessage"
-            );
-
+        const loadingMessage = document.getElementById("loadingMessage");
 
         if (loadingMessage) {
-
-            loadingMessage.style.display =
-                "none";
+            loadingMessage.style.display = "none";
         }
 
+        const registerSection =
+            document.getElementById("registerApplianceSection");
 
-        /* No appliances */
+        const dashboardContent =
+            document.getElementById("dashboardContent");
+
+        const appliancesSection =
+            document.getElementById("appliancesSection");
 
         if (appliances.length === 0) {
-
             appliance = null;
-
-            localStorage.removeItem(
-                "selected_appliance"
-            );
+            localStorage.removeItem("selected_appliance");
 
             updateAskAIDMModel();
-
             resetAskAIDM();
 
-
-            const registerSection =
-                document.getElementById(
-                    "registerApplianceSection"
-                );
-
-            const dashboardContent =
-                document.getElementById(
-                    "dashboardContent"
-                );
-
-            const appliancesSection =
-                document.getElementById(
-                    "appliancesSection"
-                );
-
-
-            if (registerSection) {
-
-                registerSection.style.display =
-                    "block";
-            }
-
-
-            if (dashboardContent) {
-
-                dashboardContent.style.display =
-                    "none";
-            }
-
-
-            if (appliancesSection) {
-
-                appliancesSection.style.display =
-                    "none";
-            }
-
+            if (registerSection) registerSection.style.display = "block";
+            if (dashboardContent) dashboardContent.style.display = "none";
+            if (appliancesSection) appliancesSection.style.display = "none";
 
             return;
         }
 
-
-        /* Restore previously selected appliance */
-
-        const savedId =
-            Number(
-                localStorage.getItem(
-                    "selected_appliance"
-                )
-            );
-
-
-        const savedAppliance =
-            appliances.find(
-                item =>
-                    Number(item.id) ===
-                    savedId
-            );
-
-
-        appliance =
-            savedAppliance ||
-            appliances[0];
-
-
-        localStorage.setItem(
-            "selected_appliance",
-            appliance.id
+        const savedId = Number(
+            localStorage.getItem("selected_appliance")
         );
 
+        appliance =
+            appliances.find(item => Number(item.id) === savedId) ||
+            appliances[0];
 
-        const registerSection =
-            document.getElementById(
-                "registerApplianceSection"
-            );
+        localStorage.setItem("selected_appliance", appliance.id);
 
-        const dashboardContent =
-            document.getElementById(
-                "dashboardContent"
-            );
-
-        const appliancesSection =
-            document.getElementById(
-                "appliancesSection"
-            );
-
-
-        if (registerSection) {
-
-            registerSection.style.display =
-                "none";
-        }
-
-
-        if (dashboardContent) {
-
-            dashboardContent.style.display =
-                "block";
-        }
-
-
-        if (appliancesSection) {
-
-            appliancesSection.style.display =
-                "block";
-        }
-
+        if (registerSection) registerSection.style.display = "none";
+        if (dashboardContent) dashboardContent.style.display = "block";
+        if (appliancesSection) appliancesSection.style.display = "block";
 
         renderApplianceList();
-
         updateApplianceOverview();
-
         updateAskAIDMModel();
-
         resetAskAIDM();
 
         await loadMaintenance();
-
         await loadServiceCenters();
-
-
     } catch (error) {
+        console.error("Load Appliances Error:", error);
 
-        console.error(
-            "Load Appliances Error:",
-            error
-        );
-
-
-        const loadingMessage =
-            document.getElementById(
-                "loadingMessage"
-            );
-
+        const loadingMessage = document.getElementById("loadingMessage");
 
         if (loadingMessage) {
-
-            loadingMessage.className =
-                "alert alert-danger";
-
+            loadingMessage.className = "alert alert-danger";
             loadingMessage.textContent =
-                "Unable to load appliance information.";
+                `Unable to load appliance information: ${error.message}`;
         }
     }
 }
-
 
 /* =========================================================
    RENDER APPLIANCE LIST
    ========================================================= */
 
 function renderApplianceList() {
+    const container = document.getElementById("applianceList");
 
-    const container =
-        document.getElementById(
-            "applianceList"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
+    if (!container) return;
 
     if (appliances.length === 0) {
-
         container.innerHTML = "";
-
         return;
     }
-
 
     container.innerHTML = "";
 
+    appliances.forEach(item => {
+        const isSelected =
+            appliance && Number(item.id) === Number(appliance.id);
 
-    appliances.forEach(
-        item => {
+        const card = document.createElement("div");
+        card.className = "col-md-6 col-lg-4";
 
-            const isSelected =
-                appliance &&
-                Number(item.id) ===
-                Number(appliance.id);
+        card.innerHTML = `
+            <div class="aidm-card h-100"
+                 style="cursor:pointer; transition:0.2s ease;
+                 ${isSelected ? "border:2px solid #0d6efd;" : ""}">
 
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "col-md-6 col-lg-4";
-
-
-            card.innerHTML = `
-
-                <div
-                    class="aidm-card h-100"
-                    style="
-                        cursor: pointer;
-                        transition: 0.2s ease;
-                        ${
-                            isSelected
-                                ? "border: 2px solid #0d6efd;"
-                                : ""
-                        }
-                    "
-                >
-
-                    <div class="d-flex justify-content-between align-items-start">
-
-                        <div class="d-flex align-items-center gap-3">
-
-                            <div class="section-icon">
-
-                                <i class="bi ${getApplianceIcon(
-                                    item.appliance_type
-                                )}"></i>
-
-                            </div>
-
-
-                            <div>
-
-                                <div class="small-label">
-
-                                    ${
-                                        isSelected
-                                            ? "SELECTED"
-                                            : "REGISTERED APPLIANCE"
-                                    }
-
-                                </div>
-
-
-                                <h4 class="mb-1">
-
-                                    ${escapeHtml(
-                                        item.model
-                                    )}
-
-                                </h4>
-
-
-                                <p class="mb-0 text-muted">
-
-                                    ${escapeHtml(
-                                        item.brand
-                                    )}
-
-                                </p>
-
-                            </div>
-
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="section-icon">
+                            <i class="bi ${getApplianceIcon(item.appliance_type)}"></i>
                         </div>
-
-
-                        ${
-                            isSelected
-                                ? `
-                                    <span class="badge bg-primary">
-                                        Active
-                                    </span>
-                                `
-                                : ""
-                        }
-
+                        <div>
+                            <div class="small-label">
+                                ${isSelected ? "SELECTED" : "REGISTERED APPLIANCE"}
+                            </div>
+                            <h4 class="mb-1">${escapeHtml(item.model)}</h4>
+                            <p class="mb-0 text-muted">${escapeHtml(item.brand)}</p>
+                        </div>
                     </div>
 
-
-                    <div class="mt-3 pt-3 border-top">
-
-                        <div class="d-flex justify-content-between mb-2">
-
-                            <span class="text-muted">
-                                Type
-                            </span>
-
-                            <strong>
-
-                                ${escapeHtml(
-                                    item.appliance_type
-                                )}
-
-                            </strong>
-
-                        </div>
-
-
-                        <div class="d-flex justify-content-between mb-3">
-
-                            <span class="text-muted">
-                                Last Service
-                            </span>
-
-                            <strong>
-
-                                ${escapeHtml(
-                                    item.last_service_date
-                                )}
-
-                            </strong>
-
-                        </div>
-
-
-                        <div class="d-flex gap-2">
-
-                            <button
-                                type="button"
-                                class="btn ${
-                                    isSelected
-                                        ? "btn-primary"
-                                        : "btn-outline-primary"
-                                } flex-grow-1 appliance-select-button"
-                                data-appliance-id="${item.id}"
-                            >
-
-                                ${
-                                    isSelected
-                                        ? "Currently Selected"
-                                        : "View Dashboard"
-                                }
-
-                            </button>
-
-
-                            <button
-                                type="button"
-                                class="btn btn-outline-danger remove-appliance-button"
-                                data-appliance-id="${item.id}"
-                                title="Remove appliance"
-                            >
-
-                                <i class="bi bi-trash"></i>
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
+                    ${isSelected ? '<span class="badge bg-primary">Active</span>' : ""}
                 </div>
 
-            `;
+                <div class="mt-3 pt-3 border-top">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Type</span>
+                        <strong>${escapeHtml(item.appliance_type)}</strong>
+                    </div>
 
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Last Service</span>
+                        <strong>${escapeHtml(item.last_service_date)}</strong>
+                    </div>
 
-            const button =
-                card.querySelector(
-                    ".appliance-select-button"
-                );
+                    <div class="d-flex gap-2">
+                        <button type="button"
+                                class="btn ${isSelected ? "btn-primary" : "btn-outline-primary"} flex-grow-1 appliance-select-button">
+                            ${isSelected ? "Currently Selected" : "View Dashboard"}
+                        </button>
 
+                        <button type="button"
+                                class="btn btn-outline-danger remove-appliance-button"
+                                title="Remove appliance">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
 
-            if (button) {
+        const selectButton =
+            card.querySelector(".appliance-select-button");
 
-                button.addEventListener(
-                    "click",
-                    async function () {
+        if (selectButton) {
+            selectButton.addEventListener("click", async function () {
+                await selectAppliance(item.id);
 
-                        await selectAppliance(
-                            item.id
-                        );
+                const dashboardContent =
+                    document.getElementById("dashboardContent");
 
-
-                        const dashboardContent =
-                            document.getElementById(
-                                "dashboardContent"
-                            );
-
-
-                        if (dashboardContent) {
-
-                            dashboardContent.scrollIntoView({
-                                behavior: "smooth",
-                                block: "start"
-                            });
-                        }
-                    }
-                );
-            }
-
-
-            /* REMOVE APPLIANCE BUTTON */
-
-            const removeButton =
-                card.querySelector(
-                    ".remove-appliance-button"
-                );
-
-
-            if (removeButton) {
-
-                removeButton.addEventListener(
-                    "click",
-                    async function (event) {
-
-                        event.stopPropagation();
-
-                        await removeAppliance(
-                            item.id
-                        );
-                    }
-                );
-            }
-
-
-            container.appendChild(
-                card
-            );
+                if (dashboardContent) {
+                    dashboardContent.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+            });
         }
-    );
-}
 
+        const removeButton =
+            card.querySelector(".remove-appliance-button");
+
+        if (removeButton) {
+            removeButton.addEventListener("click", async function (event) {
+                event.stopPropagation();
+                await removeAppliance(item.id);
+            });
+        }
+
+        container.appendChild(card);
+    });
+}
 
 /* =========================================================
    REMOVE APPLIANCE
    ========================================================= */
 
-async function removeAppliance(
-    applianceId
-) {
+async function removeAppliance(applianceId) {
+    const selected = appliances.find(
+        item => Number(item.id) === Number(applianceId)
+    );
 
-    const selected =
-        appliances.find(
-            item =>
-                Number(item.id) ===
-                Number(applianceId)
-        );
+    if (!selected) return;
 
+    const confirmed = confirm(
+        `Are you sure you want to remove ${selected.model}?\n\n` +
+        "This will also remove its service history and bookings."
+    );
 
-    if (!selected) {
-        return;
-    }
-
-
-    const confirmed =
-        confirm(
-            `Are you sure you want to remove ${selected.model}?\n\n` +
-            `This will also remove its service history and bookings.`
-        );
-
-
-    if (!confirmed) {
-        return;
-    }
-
+    if (!confirmed) return;
 
     try {
+        const response = await fetch(
+            `${API_URL}/appliances/${encodeURIComponent(applianceId)}` +
+            `?user_id=${encodeURIComponent(userId)}`,
+            { method: "DELETE" }
+        );
 
-        const response =
-            await fetch(
-                `${API_URL}/appliances/${applianceId}` +
-                `?user_id=${encodeURIComponent(userId)}`,
-                {
-                    method: "DELETE"
-                }
-            );
+        await readResponse(response);
 
+        appliances = appliances.filter(
+            item => Number(item.id) !== Number(applianceId)
+        );
 
-        const data =
-            await response.json();
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                data.detail ||
-                "Unable to remove appliance."
-            );
-        }
-
-
-        /* Remove from local array */
-
-        appliances =
-            appliances.filter(
-                item =>
-                    Number(item.id) !==
-                    Number(applianceId)
-            );
-
-
-        /* Remove selected appliance */
-
-        if (
-            appliance &&
-            Number(appliance.id) ===
-            Number(applianceId)
-        ) {
-
+        if (appliance && Number(appliance.id) === Number(applianceId)) {
             appliance = null;
-
-            localStorage.removeItem(
-                "selected_appliance"
-            );
-
+            localStorage.removeItem("selected_appliance");
             updateAskAIDMModel();
-
             resetAskAIDM();
         }
 
-
         resetAgentUI();
-
         renderApplianceList();
-
-
-        /* Reload service history */
-
         await loadBookingHistory();
 
-
-        /* If no appliances remain */
-
         if (appliances.length === 0) {
-
             const dashboardContent =
-                document.getElementById(
-                    "dashboardContent"
-                );
+                document.getElementById("dashboardContent");
 
             const appliancesSection =
-                document.getElementById(
-                    "appliancesSection"
-                );
+                document.getElementById("appliancesSection");
 
             const registerSection =
-                document.getElementById(
-                    "registerApplianceSection"
-                );
+                document.getElementById("registerApplianceSection");
 
-
-            if (dashboardContent) {
-
-                dashboardContent.style.display =
-                    "none";
-            }
-
-
-            if (appliancesSection) {
-
-                appliancesSection.style.display =
-                    "none";
-            }
-
-
-            if (registerSection) {
-
-                registerSection.style.display =
-                    "block";
-            }
-
+            if (dashboardContent) dashboardContent.style.display = "none";
+            if (appliancesSection) appliancesSection.style.display = "none";
+            if (registerSection) registerSection.style.display = "block";
 
             const serviceCenters =
-                document.getElementById(
-                    "serviceCenters"
-                );
+                document.getElementById("serviceCenters");
 
+            if (serviceCenters) serviceCenters.innerHTML = "";
 
-            if (serviceCenters) {
-
-                serviceCenters.innerHTML =
-                    "";
-            }
-
-
-            alert(
-                `${selected.model} was removed successfully.`
-            );
-
-
+            alert(`${selected.model} was removed successfully.`);
             return;
         }
 
+        await selectAppliance(appliances[0].id, true);
 
-        /* Select another remaining appliance */
-
-        await selectAppliance(
-            appliances[0].id,
-            true
-        );
-
-
-        alert(
-            `${selected.model} was removed successfully.`
-        );
-
-
+        alert(`${selected.model} was removed successfully.`);
     } catch (error) {
-
-        console.error(
-            "Remove Appliance Error:",
-            error
-        );
-
-
-        alert(
-            `Unable to remove appliance.\n\n${error.message}`
-        );
+        console.error("Remove Appliance Error:", error);
+        alert(`Unable to remove appliance.\n\n${error.message}`);
     }
 }
-
 
 /* =========================================================
    MAINTENANCE
    ========================================================= */
 
 async function loadMaintenance() {
-
-    if (!appliance) {
-        return;
-    }
-
+    if (!appliance) return;
 
     try {
+        const response = await fetch(
+            `${API_URL}/maintenance/${encodeURIComponent(appliance.id)}`
+        );
 
-        const response =
-            await fetch(
-                `${API_URL}/maintenance/${appliance.id}`
-            );
-
-
-        const data =
-            await response.json();
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                data.detail ||
-                "Maintenance check failed"
-            );
-        }
-
+        const data = await readResponse(response);
 
         const statusElement =
-            document.getElementById(
-                "maintenanceStatus"
-            );
-
+            document.getElementById("maintenanceStatus");
 
         if (statusElement) {
-
-            if (
-                data.status ===
-                "MAINTENANCE_DUE"
-            ) {
-
+            if (data.status === "MAINTENANCE_DUE") {
                 statusElement.className =
                     "maintenance-status maintenance-due";
 
                 statusElement.textContent =
                     "⚠️ Maintenance Required";
-
             } else {
-
                 statusElement.className =
                     "maintenance-status maintenance-upcoming";
 
@@ -1443,468 +649,467 @@ async function loadMaintenance() {
             }
         }
 
-
         const nextMaintenance =
-            document.getElementById(
-                "nextMaintenance"
-            );
-
+            document.getElementById("nextMaintenance");
 
         if (nextMaintenance) {
-
             nextMaintenance.textContent =
-                data.next_maintenance_date;
+                data.next_maintenance_date || "-";
         }
 
-
         const maintenanceInterval =
-            document.getElementById(
-                "maintenanceInterval"
-            );
-
+            document.getElementById("maintenanceInterval");
 
         if (maintenanceInterval) {
-
             maintenanceInterval.textContent =
                 `${data.maintenance_interval_months} months`;
         }
-
-
     } catch (error) {
-
-        console.error(
-            "Maintenance Error:",
-            error
-        );
+        console.error("Maintenance Error:", error);
     }
 }
-
 
 /* =========================================================
    SERVICE CENTERS
    ========================================================= */
 
 async function loadServiceCenters() {
-
-    if (!appliance) {
-        return;
-    }
-
+    if (!appliance) return;
 
     try {
+        const response = await fetch(
+            `${API_URL}/service/centers` +
+            `?brand=${encodeURIComponent(appliance.brand)}` +
+            `&location=${encodeURIComponent(userLocation)}`
+        );
 
-        const response =
-            await fetch(
-                `${API_URL}/service/centers` +
-                `?brand=${encodeURIComponent(
-                    appliance.brand
-                )}` +
-                `&location=Pune`
-            );
+        const data = await readResponse(response);
 
+        agentServiceCenters = data.service_centers || [];
 
-        const data =
-            await response.json();
+        const container = document.getElementById("serviceCenters");
 
+        if (!container) return;
 
-        if (!response.ok) {
-
-            throw new Error(
-                data.detail ||
-                "Unable to load service centers"
-            );
-        }
-
-
-        agentServiceCenters =
-            data.service_centers || [];
-
-
-        const container =
-            document.getElementById(
-                "serviceCenters"
-            );
-
-
-        if (!container) {
-            return;
-        }
-
-
-        if (
-            agentServiceCenters.length === 0
-        ) {
-
+        if (agentServiceCenters.length === 0) {
             container.innerHTML = `
                 <div class="alert alert-warning">
-
-                    No service centers found.
-
+                    No service centers found for ${escapeHtml(userLocation)}.
+                    Check that your locality matches a configured demo service center.
                 </div>
             `;
-
             return;
         }
-
 
         container.innerHTML = "";
 
+        agentServiceCenters.forEach(center => {
+            const card = document.createElement("div");
+            card.className = "col-md-4 mb-3";
 
-        agentServiceCenters.forEach(
-            center => {
-
-                const card =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                card.className =
-                    "col-md-4 mb-3";
-
-
-                card.innerHTML = `
-
-                    <div class="card h-100 border">
-
-                        <div class="card-body">
-
-                            <h6 class="fw-bold">
-
-                                ${escapeHtml(
-                                    center.name
-                                )}
-
-                            </h6>
-
-
-                            <p class="mb-1">
-
-                                📍 ${escapeHtml(
-                                    center.location
-                                )}
-
-                            </p>
-
-
-                            <p class="mb-1">
-
-                                📞 ${escapeHtml(
-                                    center.phone
-                                )}
-
-                            </p>
-
-
-                            <p class="mb-1">
-
-                                📏 ${escapeHtml(
-                                    center.distance_km
-                                )} km away
-
-                            </p>
-
-
-                            <p class="text-muted small">
-
-                                🕒 ${escapeHtml(
-                                    center.availability
-                                )}
-
-                            </p>
-
-
-                            <button
-                                type="button"
-                                class="btn btn-primary btn-sm"
-                                onclick="openBooking(${center.id})"
-                            >
-
-                                Book Service
-
-                            </button>
-
-                        </div>
-
+            card.innerHTML = `
+                <div class="card h-100 border">
+                    <div class="card-body">
+                        <h6 class="fw-bold">${escapeHtml(center.name)}</h6>
+                        <p class="mb-1">📍 ${escapeHtml(center.location)}</p>
+                        <p class="mb-1">📞 ${escapeHtml(center.phone)}</p>
+                        <p class="mb-1">📏 ${escapeHtml(center.distance_km)} km away</p>
+                        <p class="text-muted small">🕒 ${escapeHtml(center.availability)}</p>
+                        <button type="button"
+                                class="btn btn-primary btn-sm book-service-button">
+                            Book Service
+                        </button>
                     </div>
+                </div>
+            `;
 
-                `;
+            const button = card.querySelector(".book-service-button");
 
-
-                container.appendChild(
-                    card
-                );
+            if (button) {
+                button.addEventListener("click", function () {
+                    openBooking(center.id);
+                });
             }
-        );
 
-
+            container.appendChild(card);
+        });
     } catch (error) {
+        console.error("Service Center Error:", error);
 
-        console.error(
-            "Service Center Error:",
-            error
-        );
-
-
-        const container =
-            document.getElementById(
-                "serviceCenters"
-            );
-
+        const container = document.getElementById("serviceCenters");
 
         if (container) {
-
             container.innerHTML = `
                 <div class="alert alert-danger">
-
-                    Unable to load service centers.
-
+                    Unable to load service centers: ${escapeHtml(error.message)}
                 </div>
             `;
         }
     }
 }
-
 
 /* =========================================================
    NORMAL BOOKING PAGE
    ========================================================= */
 
-function openBooking(
-    serviceCenterId
-) {
+function openBooking(serviceCenterId) {
+    if (!appliance) return;
 
-    if (!appliance) {
-        return;
-    }
+    localStorage.setItem("selected_service_center", serviceCenterId);
+    localStorage.setItem("selected_appliance", appliance.id);
 
-
-    localStorage.setItem(
-        "selected_service_center",
-        serviceCenterId
-    );
-
-
-    localStorage.setItem(
-        "selected_appliance",
-        appliance.id
-    );
-
-
-    window.location.href =
-        "booking.html";
+    window.location.href = "booking.html";
 }
-
 
 /* =========================================================
    SERVICE HISTORY
    ========================================================= */
 
 async function loadBookingHistory() {
-
     try {
+        const response = await fetch(
+            `${API_URL}/booking/user/${encodeURIComponent(userId)}`
+        );
 
-        const response =
-            await fetch(
-                `${API_URL}/booking/user/${userId}`
-            );
+        const bookings = await readResponse(response);
 
+        const container = document.getElementById("bookingHistory");
 
-        const bookings =
-            await response.json();
+        if (!container) return;
 
-
-        if (!response.ok) {
-
-            throw new Error(
-                bookings.detail ||
-                "Unable to load service history"
-            );
-        }
-
-
-        const container =
-            document.getElementById(
-                "bookingHistory"
-            );
-
-
-        if (!container) {
-            return;
-        }
-
-
-        if (bookings.length === 0) {
-
+        if (!Array.isArray(bookings) || bookings.length === 0) {
             container.innerHTML = `
-
                 <div class="history-empty">
-
                     <i class="bi bi-hourglass-split"></i>
-
-                    <span>
-                        No service bookings yet.
-                    </span>
-
+                    <span>No service bookings yet.</span>
                 </div>
-
             `;
-
             return;
         }
-
 
         container.innerHTML = "";
 
+        bookings.forEach(booking => {
+            const bookingAppliance = appliances.find(
+                item => Number(item.id) === Number(booking.appliance_id)
+            );
 
-        bookings.forEach(
-            booking => {
+            const card = document.createElement("div");
+            card.className = "card border mb-3";
 
-                const bookingAppliance =
-                    appliances.find(
-                        item =>
-                            Number(item.id) ===
-                            Number(
-                                booking.appliance_id
-                            )
-                    );
-
-
-                const card =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                card.className =
-                    "card border mb-3";
-
-
-                card.innerHTML = `
-
-                    <div class="card-body">
-
-                        <div class="row align-items-center">
-
-                            <div class="col-md-3">
-
-                                <small class="text-muted">
-                                    Booking ID
-                                </small>
-
-                                <p class="fw-bold mb-0">
-
-                                    #${escapeHtml(
-                                        booking.id
-                                    )}
-
-                                </p>
-
-                            </div>
-
-
-                            <div class="col-md-3">
-
-                                <small class="text-muted">
-                                    Appliance
-                                </small>
-
-                                <p class="fw-bold mb-0">
-
-                                    ${
-                                        bookingAppliance
-                                            ? escapeHtml(
-                                                bookingAppliance.model
-                                            )
-                                            : `Appliance #${escapeHtml(
-                                                booking.appliance_id
-                                            )}`
-                                    }
-
-                                </p>
-
-                            </div>
-
-
-                            <div class="col-md-3">
-
-                                <small class="text-muted">
-                                    Service Date
-                                </small>
-
-                                <p class="fw-bold mb-0">
-
-                                    ${escapeHtml(
-                                        booking.booking_date
-                                    )}
-
-                                </p>
-
-
-                                ${
-                                    booking.booking_slot
-                                        ? `
-                                            <small class="text-muted">
-
-                                                🕐 ${escapeHtml(
-                                                    booking.booking_slot
-                                                )}
-
-                                            </small>
-                                        `
-                                        : ""
-                                }
-
-                            </div>
-
-
-                            <div class="col-md-3">
-
-                                <small class="text-muted">
-                                    Service Center
-                                </small>
-
-                                <p class="fw-bold mb-1">
-
-                                    Center #${escapeHtml(
-                                        booking.service_center_id
-                                    )}
-
-                                </p>
-
-
-                                <span class="badge bg-success">
-
-                                    ${escapeHtml(
-                                        booking.status
-                                    )}
-
-                                </span>
-
-                            </div>
-
+            card.innerHTML = `
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <small class="text-muted">Booking ID</small>
+                            <p class="fw-bold mb-0">#${escapeHtml(booking.id)}</p>
                         </div>
 
+                        <div class="col-md-3">
+                            <small class="text-muted">Appliance</small>
+                            <p class="fw-bold mb-0">
+                                ${bookingAppliance
+                                    ? escapeHtml(bookingAppliance.model)
+                                    : `Appliance #${escapeHtml(booking.appliance_id)}`}
+                            </p>
+                        </div>
+
+                        <div class="col-md-3">
+                            <small class="text-muted">Service Date</small>
+                            <p class="fw-bold mb-0">${escapeHtml(booking.booking_date)}</p>
+                            ${booking.booking_slot
+                                ? `<small class="text-muted">🕐 ${escapeHtml(booking.booking_slot)}</small>`
+                                : ""}
+                        </div>
+
+                        <div class="col-md-3">
+                            <small class="text-muted">Service Center</small>
+                            <p class="fw-bold mb-1">
+                                Center #${escapeHtml(booking.service_center_id)}
+                            </p>
+                            <span class="badge ${
+                                booking.status === "CONFIRMED"
+                                    ? "bg-success"
+                                    : "bg-secondary"
+                            }">
+                                ${escapeHtml(booking.status)}
+                            </span>
+                        </div>
                     </div>
+                </div>
+            `;
 
-                `;
-
-
-                container.appendChild(
-                    card
-                );
-            }
-        );
-
-
+            container.appendChild(card);
+        });
     } catch (error) {
-
-        console.error(
-            "Booking History Error:",
-            error
-        );
+        console.error("Booking History Error:", error);
     }
 }
+
+
+/* =========================================================
+   PROACTIVE MAINTENANCE PROPOSALS
+   ========================================================= */
+
+async function loadMaintenanceProposals() {
+    const container = document.getElementById("maintenanceProposals");
+    const message = document.getElementById("proposalMessage");
+
+    if (!container || !userId) return;
+
+    container.innerHTML = `
+        <div class="col-12 text-muted">
+            Loading maintenance proposals...
+        </div>
+    `;
+
+    try {
+        const response = await fetch(
+            `${API_URL}/maintenance-proposals/user/${encodeURIComponent(userId)}`
+        );
+
+        const proposals = await readResponse(response);
+
+        if (!Array.isArray(proposals) || proposals.length === 0) {
+            container.innerHTML = `
+                <div class="col-12">
+                    <div class="history-empty">
+                        <i class="bi bi-calendar-check"></i>
+                        <span>No maintenance proposals yet.</span>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
+        const pending = proposals.filter(
+            proposal => proposal.status === "PENDING"
+        );
+
+        container.innerHTML = "";
+
+        proposals.forEach(proposal => {
+            const isPending = proposal.status === "PENDING";
+
+            const relatedAppliance = appliances.find(
+                item => Number(item.id) === Number(proposal.appliance_id)
+            );
+
+            const modelName = relatedAppliance
+                ? relatedAppliance.model
+                : `Appliance #${proposal.appliance_id}`;
+
+            const statusClass = {
+                PENDING: "bg-warning text-dark",
+                APPROVED: "bg-success",
+                DECLINED: "bg-secondary"
+            }[proposal.status] || "bg-secondary";
+
+            const card = document.createElement("div");
+            card.className = "col-12 col-lg-6";
+
+            card.innerHTML = `
+                <div class="card h-100 border">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between
+                                    align-items-start gap-2 mb-3">
+                            <div>
+                                <div class="small-label">
+                                    PROPOSAL #${escapeHtml(proposal.id)}
+                                </div>
+                                <h5 class="mb-1">
+                                    ${escapeHtml(modelName)}
+                                </h5>
+                            </div>
+                            <span class="badge ${statusClass}">
+                                ${escapeHtml(proposal.status)}
+                            </span>
+                        </div>
+
+                        <div class="mb-2">
+                            <small class="text-muted d-block">
+                                Maintenance due
+                            </small>
+                            <strong>
+                                ${escapeHtml(proposal.maintenance_due_date)}
+                            </strong>
+                        </div>
+
+                        <div class="mb-2">
+                            <small class="text-muted d-block">
+                                Proposed appointment
+                            </small>
+                            <strong>
+                                ${escapeHtml(proposal.proposed_date || "Not available")}
+                            </strong>
+                            <div>
+                                ${escapeHtml(proposal.proposed_slot || "")}
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <small class="text-muted d-block">
+                                Demo service center
+                            </small>
+                            <strong>
+                                Center #${escapeHtml(proposal.service_center_id ?? "N/A")}
+                            </strong>
+                        </div>
+
+                        ${
+                            isPending
+                                ? `
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <button type="button"
+                                                class="btn btn-success flex-grow-1 approve-proposal">
+                                            <i class="bi bi-check-lg"></i>
+                                            Approve
+                                        </button>
+                                        <button type="button"
+                                                class="btn btn-outline-secondary decline-proposal">
+                                            Decline
+                                        </button>
+                                    </div>
+                                `
+                                : `
+                                    <div class="small text-muted mt-auto">
+                                        ${
+                                            proposal.status === "APPROVED"
+                                                ? "This proposal has been approved."
+                                                : "This proposal has been declined."
+                                        }
+                                    </div>
+                                `
+                        }
+                    </div>
+                </div>
+            `;
+
+            const approveButton = card.querySelector(".approve-proposal");
+            const declineButton = card.querySelector(".decline-proposal");
+
+            if (approveButton) {
+                approveButton.addEventListener("click", () => {
+                    respondToMaintenanceProposal(
+                        proposal.id,
+                        "approve",
+                        approveButton
+                    );
+                });
+            }
+
+            if (declineButton) {
+                declineButton.addEventListener("click", () => {
+                    respondToMaintenanceProposal(
+                        proposal.id,
+                        "decline",
+                        declineButton
+                    );
+                });
+            }
+
+            container.appendChild(card);
+        });
+
+        if (message && pending.length > 0) {
+            message.innerHTML = `
+                <div class="alert alert-info mb-0">
+                    You have ${pending.length} pending maintenance
+                    proposal${pending.length === 1 ? "" : "s"} to review.
+                </div>
+            `;
+        } else if (message) {
+            message.innerHTML = "";
+        }
+
+    } catch (error) {
+        console.error("Maintenance Proposals Error:", error);
+
+        container.innerHTML = `
+            <div class="col-12">
+                <div class="alert alert-danger">
+                    Unable to load maintenance proposals:
+                    ${escapeHtml(error.message)}
+                </div>
+            </div>
+        `;
+    }
+}
+
+
+async function respondToMaintenanceProposal(
+    proposalId,
+    action,
+    button
+) {
+    const message = document.getElementById("proposalMessage");
+
+    if (action !== "approve" && action !== "decline") {
+        return;
+    }
+
+    if (action === "decline") {
+        const confirmed = confirm(
+            "Are you sure you want to decline this maintenance proposal?"
+        );
+
+        if (!confirmed) return;
+    }
+
+    const originalText = button.textContent;
+
+    button.disabled = true;
+    button.textContent = action === "approve"
+        ? "Approving..."
+        : "Declining...";
+
+    try {
+        const params = new URLSearchParams({
+            user_id: String(userId)
+        });
+
+        const response = await fetch(
+            `${API_URL}/maintenance-proposals/${encodeURIComponent(proposalId)}/${action}?${params}`,
+            { method: "POST" }
+        );
+
+        const data = await readResponse(response);
+
+        if (message) {
+            message.innerHTML = `
+                <div class="alert alert-success">
+                    ${escapeHtml(data.message ||
+                        (action === "approve"
+                            ? "Proposal approved."
+                            : "Proposal declined."))}
+                </div>
+            `;
+        }
+
+        await loadMaintenanceProposals();
+
+        if (action === "approve") {
+            await loadBookingHistory();
+        }
+
+    } catch (error) {
+        console.error("Proposal Response Error:", error);
+
+        if (message) {
+            message.innerHTML = `
+                <div class="alert alert-danger">
+                    Unable to ${action} proposal:
+                    ${escapeHtml(error.message)}
+                </div>
+            `;
+        }
+
+        button.disabled = false;
+        button.textContent = originalText;
+    }
+}
+
+
 
 
 /* =========================================================
@@ -1912,1283 +1117,612 @@ async function loadBookingHistory() {
    ========================================================= */
 
 function populateAgentCenterDropdown() {
-
     const select =
-        document.getElementById(
-            "agentServiceCenterSelect"
-        );
+        document.getElementById("agentServiceCenterSelect");
 
+    if (!select) return;
 
-    if (!select) {
-        return;
-    }
+    select.innerHTML =
+        '<option value="">Select service center</option>';
 
+    agentServiceCenters.forEach(center => {
+        const option = document.createElement("option");
 
-    select.innerHTML = `
+        option.value = center.id;
+        option.textContent =
+            `${center.name} — ${center.distance_km} km`;
 
-        <option value="">
-            Select service center
-        </option>
-
-    `;
-
-
-    agentServiceCenters.forEach(
-        center => {
-
-            const option =
-                document.createElement(
-                    "option"
-                );
-
-
-            option.value =
-                center.id;
-
-
-            option.textContent =
-                `${center.name} — ${center.distance_km} km`;
-
-
-            select.appendChild(
-                option
-            );
-        }
-    );
+        select.appendChild(option);
+    });
 }
-
 
 /* =========================================================
    AGENT SLOT DROPDOWN
    ========================================================= */
 
-function populateAgentSlotDropdown(
-    center
-) {
-
+function populateAgentSlotDropdown(center) {
     const slotSelect =
-        document.getElementById(
-            "agentSlotSelect"
-        );
+        document.getElementById("agentSlotSelect");
 
+    if (!slotSelect) return;
 
-    if (!slotSelect) {
-        return;
-    }
+    slotSelect.innerHTML =
+        '<option value="">Select service slot</option>';
 
-
-    slotSelect.innerHTML = `
-
-        <option value="">
-            Select service slot
-        </option>
-
-    `;
-
-
-    slotSelect.disabled =
-        true;
-
+    slotSelect.disabled = true;
 
     if (
         !center ||
-        !center.available_slots ||
+        !Array.isArray(center.available_slots) ||
         center.available_slots.length === 0
     ) {
-
         return;
     }
 
+    center.available_slots.forEach(slot => {
+        const option = document.createElement("option");
 
-    center.available_slots.forEach(
-        slot => {
+        option.value = slot;
+        option.textContent = slot;
 
-            const option =
-                document.createElement(
-                    "option"
-                );
+        slotSelect.appendChild(option);
+    });
 
-
-            option.value =
-                slot;
-
-
-            option.textContent =
-                slot;
-
-
-            slotSelect.appendChild(
-                option
-            );
-        }
-    );
-
-
-    slotSelect.disabled =
-        false;
+    slotSelect.disabled = false;
 }
-
 
 /* =========================================================
    CENTER CHANGE
    ========================================================= */
 
 const centerSelect =
-    document.getElementById(
-        "agentServiceCenterSelect"
-    );
-
+    document.getElementById("agentServiceCenterSelect");
 
 if (centerSelect) {
+    centerSelect.addEventListener("change", function () {
+        const centerId = Number(this.value);
 
-    centerSelect.addEventListener(
-        "change",
-        function () {
+        selectedAgentCenter = agentServiceCenters.find(
+            center => Number(center.id) === centerId
+        );
 
-            const centerId =
-                Number(
-                    this.value
-                );
+        const distance =
+            document.getElementById("agentServiceDistance");
 
+        if (!selectedAgentCenter) {
+            if (distance) distance.textContent = "";
 
-            selectedAgentCenter =
-                agentServiceCenters.find(
-                    center =>
-                        center.id ===
-                        centerId
-                );
-
-
-            if (!selectedAgentCenter) {
-
-                const distance =
-                    document.getElementById(
-                        "agentServiceDistance"
-                    );
-
-
-                if (distance) {
-                    distance.textContent = "";
-                }
-
-
-                populateAgentSlotDropdown(
-                    null
-                );
-
-
-                selectedAgentSlot =
-                    null;
-
-
-                return;
-            }
-
-
-            const distance =
-                document.getElementById(
-                    "agentServiceDistance"
-                );
-
-
-            if (distance) {
-
-                distance.textContent =
-                    `${selectedAgentCenter.distance_km} km away`;
-            }
-
-
-            populateAgentSlotDropdown(
-                selectedAgentCenter
-            );
-
-
-            if (
-                selectedAgentCenter.available_slots &&
-                selectedAgentCenter.available_slots.length
-            ) {
-
-                const slotSelect =
-                    document.getElementById(
-                        "agentSlotSelect"
-                    );
-
-
-                selectedAgentSlot =
-                    selectedAgentCenter
-                        .available_slots[0];
-
-
-                if (slotSelect) {
-
-                    slotSelect.value =
-                        selectedAgentSlot;
-                }
-            }
+            populateAgentSlotDropdown(null);
+            selectedAgentSlot = null;
+            return;
         }
-    );
-}
 
+        if (distance) {
+            distance.textContent =
+                `${selectedAgentCenter.distance_km} km away`;
+        }
+
+        populateAgentSlotDropdown(selectedAgentCenter);
+
+        const availableSlots =
+            selectedAgentCenter.available_slots || [];
+
+        selectedAgentSlot = availableSlots[0] || null;
+
+        const slotSelect =
+            document.getElementById("agentSlotSelect");
+
+        if (slotSelect) {
+            slotSelect.value = selectedAgentSlot || "";
+        }
+    });
+}
 
 /* =========================================================
    SLOT CHANGE
    ========================================================= */
 
-const slotSelect =
-    document.getElementById(
-        "agentSlotSelect"
-    );
-
+const slotSelect = document.getElementById("agentSlotSelect");
 
 if (slotSelect) {
-
-    slotSelect.addEventListener(
-        "change",
-        function () {
-
-            selectedAgentSlot =
-                this.value ||
-                null;
-        }
-    );
+    slotSelect.addEventListener("change", function () {
+        selectedAgentSlot = this.value || null;
+    });
 }
-
 
 /* =========================================================
    RUN AIDM AGENT
    ========================================================= */
 
 async function runAIDMAgent() {
-
     if (!appliance) {
+        alert("Please select an appliance first.");
         return;
     }
 
-
-    const button =
-        document.getElementById(
-            "runAgentButton"
-        );
-
-
-    const status =
-        document.getElementById(
-            "agentStatus"
-        );
-
+    const button = document.getElementById("runAgentButton");
+    const status = document.getElementById("agentStatus");
 
     if (button) {
-
-        button.disabled =
-            true;
-
-        button.innerHTML =
-            "⏳ AIDM Agent is working...";
+        button.disabled = true;
+        button.innerHTML = "⏳ AIDM Agent is working...";
     }
 
-
     if (status) {
-
         status.innerHTML = `
-
             <div class="alert alert-info">
-
-                <strong>
-                    Agent is analyzing your appliance...
-                </strong>
-
+                <strong>Agent is analyzing your appliance...</strong>
                 <p class="mb-0 mt-1">
-
-                    Finding maintenance date,
-                    service centers and available slots.
-
+                    Finding maintenance date, service centers and available slots.
                 </p>
-
             </div>
-
         `;
     }
 
-
     try {
+        const params = new URLSearchParams({
+            user_id: userId,
+            appliance_id: String(appliance.id),
+            location: userLocation,
+            confirm_booking: "false"
+        });
 
-        const response =
-            await fetch(
+        const response = await fetch(
+            `${API_URL}/agent/run?${params.toString()}`,
+            { method: "POST" }
+        );
 
-                `${API_URL}/agent/run` +
-
-                `?user_id=${encodeURIComponent(
-                    userId
-                )}` +
-
-                `&appliance_id=${encodeURIComponent(
-                    appliance.id
-                )}` +
-
-                `&location=Pune` +
-
-                `&confirm_booking=false`,
-
-                {
-                    method: "POST"
-                }
-            );
-
-
-        const data =
-            await response.json();
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                data.detail ||
-                "Agent request failed."
-            );
-        }
-
+        const data = await readResponse(response);
 
         const agentResults =
-            document.getElementById(
-                "agentResults"
-            );
+            document.getElementById("agentResults");
 
+        if (agentResults) agentResults.style.display = "block";
 
-        if (agentResults) {
+        const maintenanceStatus =
+            document.getElementById("agentMaintenanceStatus");
 
-            agentResults.style.display =
-                "block";
+        if (maintenanceStatus) {
+            maintenanceStatus.textContent =
+                data.maintenance_status || "-";
         }
 
+        const maintenanceDate =
+            document.getElementById("agentMaintenanceDate");
 
-        const agentMaintenanceStatus =
-            document.getElementById(
-                "agentMaintenanceStatus"
-            );
-
-
-        if (agentMaintenanceStatus) {
-
-            agentMaintenanceStatus.textContent =
-                data.maintenance_status ||
-                "-";
+        if (maintenanceDate) {
+            maintenanceDate.textContent =
+                data.next_maintenance_date || "-";
         }
 
+        agentServiceCenters = data.service_centers || [];
 
-        const agentMaintenanceDate =
-            document.getElementById(
-                "agentMaintenanceDate"
-            );
+        const centerCount =
+            document.getElementById("agentCenterCount");
 
-
-        if (agentMaintenanceDate) {
-
-            agentMaintenanceDate.textContent =
-                data.next_maintenance_date ||
-                "-";
+        if (centerCount) {
+            centerCount.textContent = agentServiceCenters.length;
         }
-
-
-        agentServiceCenters =
-            data.service_centers ||
-            [];
-
-
-        const agentCenterCount =
-            document.getElementById(
-                "agentCenterCount"
-            );
-
-
-        if (agentCenterCount) {
-
-            agentCenterCount.textContent =
-                agentServiceCenters.length;
-        }
-
 
         populateAgentCenterDropdown();
 
+        const recommendedCenter =
+            data.recommended_service_center ||
+            agentServiceCenters[0] ||
+            null;
 
-        let recommendedCenter =
-            data.recommended_service_center;
-
-
-        if (!recommendedCenter) {
-
-            recommendedCenter =
-                agentServiceCenters[0];
-        }
-
+        selectedAgentCenter = null;
+        selectedAgentSlot = null;
 
         if (recommendedCenter) {
-
             selectedAgentCenter =
                 agentServiceCenters.find(
-                    center =>
-                        center.id ===
-                        recommendedCenter.id
-                ) ||
-                recommendedCenter;
-
+                    center => Number(center.id) ===
+                        Number(recommendedCenter.id)
+                ) || recommendedCenter;
 
             if (centerSelect) {
-
-                centerSelect.value =
-                    selectedAgentCenter.id;
+                centerSelect.value = selectedAgentCenter.id;
             }
 
-
             const distance =
-                document.getElementById(
-                    "agentServiceDistance"
-                );
-
+                document.getElementById("agentServiceDistance");
 
             if (distance) {
-
                 distance.textContent =
                     `${selectedAgentCenter.distance_km} km away`;
             }
 
-
-            populateAgentSlotDropdown(
-                selectedAgentCenter
-            );
-
+            populateAgentSlotDropdown(selectedAgentCenter);
 
             selectedAgentSlot =
                 data.recommended_slot ||
-                selectedAgentCenter
-                    .available_slots?.[0] ||
+                selectedAgentCenter.available_slots?.[0] ||
                 null;
 
-
             if (slotSelect) {
-
-                slotSelect.value =
-                    selectedAgentSlot ||
-                    "";
+                slotSelect.value = selectedAgentSlot || "";
             }
         }
 
+        const explanation =
+            document.getElementById("agentExplanation");
 
-        const agentExplanation =
-            document.getElementById(
-                "agentExplanation"
-            );
-
-
-        if (agentExplanation) {
-
-            agentExplanation.textContent =
+        if (explanation) {
+            explanation.textContent =
                 data.maintenance_explanation ||
                 "No explanation available.";
         }
 
-
         const confirmation =
-            document.getElementById(
-                "agentConfirmation"
-            );
-
+            document.getElementById("agentConfirmation");
 
         if (confirmation) {
-
             confirmation.style.display =
-                (
-                    selectedAgentCenter &&
-                    selectedAgentSlot
-                )
+                selectedAgentCenter && selectedAgentSlot
                     ? "block"
                     : "none";
         }
 
-
         window.aidmRecommendation = {
-
-            serviceCenterId:
-                selectedAgentCenter
-                    ? selectedAgentCenter.id
-                    : null,
-
-            bookingDate:
-                data.next_maintenance_date,
-
-            recommendedSlot:
-                selectedAgentSlot
+            serviceCenterId: selectedAgentCenter
+                ? selectedAgentCenter.id
+                : null,
+            bookingDate: data.next_maintenance_date,
+            recommendedSlot: selectedAgentSlot
         };
 
-
         if (status) {
-
             status.innerHTML = `
-
                 <div class="alert alert-success">
-
-                    <strong>
-                        ✅ Agent analysis completed.
-                    </strong>
-
+                    <strong>✅ Agent analysis completed.</strong>
                     <p class="mb-0 mt-1">
-
-                        You can now choose a service center
-                        and available time slot.
-
+                        Review the recommended center and slot before booking.
                     </p>
-
                 </div>
-
             `;
         }
-
-
     } catch (error) {
-
-        console.error(
-            "AIDM Agent Error:",
-            error
-        );
-
+        console.error("AIDM Agent Error:", error);
 
         if (status) {
-
             status.innerHTML = `
-
                 <div class="alert alert-danger">
-
-                    <strong>
-                        Agent Error
-                    </strong>
-
-                    <p class="mb-0 mt-1">
-
-                        ${escapeHtml(
-                            error.message
-                        )}
-
-                    </p>
-
+                    <strong>Agent Error</strong>
+                    <p class="mb-0 mt-1">${escapeHtml(error.message)}</p>
                 </div>
-
             `;
         }
-
-
     } finally {
-
         if (button) {
-
-            button.disabled =
-                false;
-
-            button.innerHTML =
-                "🤖 Run AIDM Agent";
+            button.disabled = false;
+            button.innerHTML = "🤖 Run AIDM Agent";
         }
     }
 }
 
-
-/* =========================================================
-   RUN AGENT BUTTON
-   ========================================================= */
-
 const runAgentButton =
-    document.getElementById(
-        "runAgentButton"
-    );
-
+    document.getElementById("runAgentButton");
 
 if (runAgentButton) {
-
-    runAgentButton.addEventListener(
-        "click",
-        runAIDMAgent
-    );
+    runAgentButton.addEventListener("click", runAIDMAgent);
 }
-
 
 /* =========================================================
    CONFIRM AGENT BOOKING
    ========================================================= */
 
 const confirmAgentBooking =
-    document.getElementById(
-        "confirmAgentBooking"
-    );
-
+    document.getElementById("confirmAgentBooking");
 
 if (confirmAgentBooking) {
+    confirmAgentBooking.addEventListener("click", async function () {
+        const centerSelect =
+            document.getElementById("agentServiceCenterSelect");
 
-    confirmAgentBooking.addEventListener(
-        "click",
-        async function () {
+        const slotSelect =
+            document.getElementById("agentSlotSelect");
 
-            const centerSelect =
-                document.getElementById(
-                    "agentServiceCenterSelect"
-                );
+        const selectedCenterId = Number(centerSelect?.value);
+        const selectedSlot = slotSelect?.value;
 
+        if (!selectedCenterId || !selectedSlot) {
+            alert("Please select a service center and time slot.");
+            return;
+        }
 
-            const slotSelect =
-                document.getElementById(
-                    "agentSlotSelect"
-                );
+        if (!appliance) {
+            alert("Please select an appliance first.");
+            return;
+        }
 
+        const recommendation = window.aidmRecommendation;
 
-            const selectedCenterId =
-                Number(
-                    centerSelect.value
-                );
+        if (!recommendation || !recommendation.bookingDate) {
+            alert("Maintenance date is missing.");
+            return;
+        }
 
+        const button =
+            document.getElementById("confirmAgentBooking");
 
-            const selectedSlot =
-                slotSelect.value;
+        const resultBox =
+            document.getElementById("agentBookingResult");
 
+        button.disabled = true;
+        button.innerHTML = "⏳ Booking...";
 
-            if (
-                !selectedCenterId ||
-                !selectedSlot
-            ) {
+        try {
+            const params = new URLSearchParams({
+                user_id: userId,
+                appliance_id: String(appliance.id),
+                location: userLocation,
+                selected_service_center: String(selectedCenterId),
+                booking_date: recommendation.bookingDate,
+                booking_slot: selectedSlot,
+                confirm_booking: "true"
+            });
 
-                alert(
-                    "Please select a service center and time slot."
-                );
+            const response = await fetch(
+                `${API_URL}/agent/run?${params.toString()}`,
+                { method: "POST" }
+            );
 
-                return;
+            const data = await readResponse(response);
+
+            if (data.booking_status !== "CONFIRMED") {
+                throw new Error("Booking was not confirmed by the backend.");
             }
 
-
-            if (!appliance) {
-
-                alert(
-                    "Please select an appliance first."
-                );
-
-                return;
-            }
-
-
-            const recommendation =
-                window.aidmRecommendation;
-
-
-            if (
-                !recommendation ||
-                !recommendation.bookingDate
-            ) {
-
-                alert(
-                    "Maintenance date is missing."
-                );
-
-                return;
-            }
-
-
-            const button =
-                document.getElementById(
-                    "confirmAgentBooking"
-                );
-
-
-            const resultBox =
-                document.getElementById(
-                    "agentBookingResult"
-                );
-
-
-            button.disabled =
-                true;
-
-
-            button.innerHTML =
-                "⏳ Booking...";
-
-
-            try {
-
-                const response =
-                    await fetch(
-
-                        `${API_URL}/agent/run` +
-
-                        `?user_id=${encodeURIComponent(
-                            userId
-                        )}` +
-
-                        `&appliance_id=${encodeURIComponent(
-                            appliance.id
-                        )}` +
-
-                        `&location=Pune` +
-
-                        `&selected_service_center=${encodeURIComponent(
-                            selectedCenterId
-                        )}` +
-
-                        `&booking_date=${encodeURIComponent(
-                            recommendation.bookingDate
-                        )}` +
-
-                        `&booking_slot=${encodeURIComponent(
-                            selectedSlot
-                        )}` +
-
-                        `&confirm_booking=true`,
-
-                        {
-                            method: "POST"
-                        }
-                    );
-
-
-                const data =
-                    await response.json();
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        data.detail ||
-                        "Booking failed."
-                    );
-                }
-
-
-                if (
-                    data.booking_status !==
-                    "CONFIRMED"
-                ) {
-
-                    throw new Error(
-                        "Booking was not confirmed."
-                    );
-                }
-
-
-                resultBox.style.display =
-                    "block";
-
+            if (resultBox) {
+                resultBox.style.display = "block";
 
                 resultBox.innerHTML = `
-
                     <div class="alert alert-success">
-
-                        <strong>
-                            ✅ Appointment booked successfully!
-                        </strong>
-
+                        <strong>✅ Appointment booked successfully!</strong>
 
                         <p class="mb-1 mt-2">
-
                             Booking ID:
-
-                            <strong>
-
-                                ${escapeHtml(
-                                    data.booking_id
-                                )}
-
-                            </strong>
-
+                            <strong>${escapeHtml(data.booking_id)}</strong>
                         </p>
 
-
                         <p class="mb-1">
-
                             Date:
-
-                            <strong>
-
-                                ${escapeHtml(
-                                    data.booking_date
-                                )}
-
-                            </strong>
-
+                            <strong>${escapeHtml(data.booking_date)}</strong>
                         </p>
-
 
                         <p class="mb-1">
-
                             Appliance:
-
-                            <strong>
-
-                                ${escapeHtml(
-                                    appliance.model
-                                )}
-
-                            </strong>
-
+                            <strong>${escapeHtml(appliance.model)}</strong>
                         </p>
-
 
                         <p class="mb-0">
-
                             Time Slot:
-
-                            <strong>
-
-                                ${escapeHtml(
-                                    data.booking_slot ||
-                                    selectedSlot
-                                )}
-
-                            </strong>
-
+                            <strong>${escapeHtml(data.booking_slot || selectedSlot)}</strong>
                         </p>
-
                     </div>
-
                 `;
+            }
 
+            const confirmation =
+                document.getElementById("agentConfirmation");
 
-                const confirmation =
-                    document.getElementById(
-                        "agentConfirmation"
-                    );
+            if (confirmation) {
+                confirmation.style.display = "none";
+            }
 
+            button.innerHTML = "✅ Booking Confirmed";
 
-                if (confirmation) {
+            await loadBookingHistory();
+        } catch (error) {
+            console.error("Agent Booking Error:", error);
 
-                    confirmation.style.display =
-                        "none";
-                }
-
-
-                button.innerHTML =
-                    "✅ Booking Confirmed";
-
-
-                await loadBookingHistory();
-
-
-            } catch (error) {
-
-                console.error(
-                    "Agent Booking Error:",
-                    error
-                );
-
-
-                resultBox.style.display =
-                    "block";
-
+            if (resultBox) {
+                resultBox.style.display = "block";
 
                 resultBox.innerHTML = `
-
                     <div class="alert alert-danger">
-
-                        <strong>
-                            Booking failed
-                        </strong>
-
-                        <p class="mb-0 mt-1">
-
-                            ${escapeHtml(
-                                error.message
-                            )}
-
-                        </p>
-
+                        <strong>Booking failed</strong>
+                        <p class="mb-0 mt-1">${escapeHtml(error.message)}</p>
                     </div>
-
                 `;
-
-
-                button.disabled =
-                    false;
-
-
-                button.innerHTML =
-                    "✅ Yes, Book It";
             }
-        }
-    );
-}
 
+            button.disabled = false;
+            button.innerHTML = "✅ Yes, Book It";
+        }
+    });
+}
 
 /* =========================================================
    CANCEL AGENT BOOKING
    ========================================================= */
 
 const cancelAgentBooking =
-    document.getElementById(
-        "cancelAgentBooking"
-    );
-
+    document.getElementById("cancelAgentBooking");
 
 if (cancelAgentBooking) {
+    cancelAgentBooking.addEventListener("click", function () {
+        const confirmation =
+            document.getElementById("agentConfirmation");
 
-    cancelAgentBooking.addEventListener(
-        "click",
-        function () {
-
-            const confirmation =
-                document.getElementById(
-                    "agentConfirmation"
-                );
-
-
-            if (confirmation) {
-
-                confirmation.style.display =
-                    "none";
-            }
-
-
-            const status =
-                document.getElementById(
-                    "agentStatus"
-                );
-
-
-            if (status) {
-
-                status.innerHTML = `
-
-                    <div class="alert alert-secondary">
-
-                        <strong>
-                            Booking not created.
-                        </strong>
-
-                        <p class="mb-0 mt-1">
-
-                            The recommendation has been
-                            dismissed.
-
-                        </p>
-
-                    </div>
-
-                `;
-            }
+        if (confirmation) {
+            confirmation.style.display = "none";
         }
-    );
-}
 
+        const status = document.getElementById("agentStatus");
+
+        if (status) {
+            status.innerHTML = `
+                <div class="alert alert-secondary">
+                    <strong>Booking not created.</strong>
+                    <p class="mb-0 mt-1">
+                        The recommendation has been dismissed.
+                    </p>
+                </div>
+            `;
+        }
+    });
+}
 
 /* =========================================================
    ADD APPLIANCE BUTTON
    ========================================================= */
 
 const addApplianceButton =
-    document.getElementById(
-        "addApplianceButton"
-    );
-
+    document.getElementById("addApplianceButton");
 
 if (addApplianceButton) {
+    addApplianceButton.addEventListener("click", function () {
+        const section =
+            document.getElementById("registerApplianceSection");
 
-    addApplianceButton.addEventListener(
-        "click",
-        function () {
+        if (!section) return;
 
-            const section =
-                document.getElementById(
-                    "registerApplianceSection"
-                );
+        section.style.display = "block";
 
-
-            if (!section) {
-                return;
-            }
-
-
-            section.style.display =
-                "block";
-
-
-            section.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }
-    );
+        section.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
 }
-
 
 /* =========================================================
    REGISTER APPLIANCE
    ========================================================= */
 
 const applianceForm =
-    document.getElementById(
-        "applianceForm"
-    );
-
+    document.getElementById("applianceForm");
 
 if (applianceForm) {
-
-    applianceForm.addEventListener(
-        "submit",
-        async function (event) {
-
-            event.preventDefault();
-
-
-            const message =
-                document.getElementById(
-                    "applianceMessage"
-                );
-
-
-            const applianceType =
-                document.getElementById(
-                    "applianceTypeInput"
-                ).value;
-
-
-            const brand =
-                document.getElementById(
-                    "brandInput"
-                ).value;
-
-
-            const model =
-                document.getElementById(
-                    "modelInput"
-                ).value;
-
-
-            const interval =
-                document.getElementById(
-                    "intervalInput"
-                ).value;
-
-
-            const installationDate =
-                document.getElementById(
-                    "installationDate"
-                ).value;
-
-
-            const lastServiceDate =
-                document.getElementById(
-                    "lastServiceDate"
-                ).value;
-
-
-            /* Only the three current KENT manuals */
-
-            const allowedModels = [
-
-                "KENT Elegant",
-
-                "KENT Grand",
-
-                "KENT Sterling Star"
-
-            ];
-
-
-            if (
-                applianceType !==
-                    "Water Purifier" ||
-
-                brand !== "KENT" ||
-
-                !allowedModels.includes(
-                    model
-                )
-            ) {
-
-                message.innerHTML = `
-
-                    <div class="alert alert-warning">
-
-                        Please select:
-
-                        <strong>
-                            Water Purifier
-                        </strong>
-
-                        →
-
-                        <strong>
-                            KENT
-                        </strong>
-
-                        →
-
-                        <strong>
-                            KENT Elegant,
-                            KENT Grand,
-                            or
-                            KENT Sterling Star
-                        </strong>
-
-                    </div>
-
-                `;
-
-                return;
-            }
-
-
-            try {
-
-                const response =
-                    await fetch(
-                        `${API_URL}/appliances/`,
-                        {
-                            method: "POST",
-
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
-
-                            body:
-                                JSON.stringify({
-
-                                    user_id:
-                                        Number(
-                                            userId
-                                        ),
-
-                                    appliance_type:
-                                        applianceType,
-
-                                    brand:
-                                        brand,
-
-                                    model:
-                                        model,
-
-                                    installation_date:
-                                        installationDate,
-
-                                    last_service_date:
-                                        lastServiceDate,
-
-                                    maintenance_interval:
-                                        Number(
-                                            interval
-                                        )
-                                })
-                        }
-                    );
-
-
-                const data =
-                    await response.json();
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        data.detail ||
-                        "Unable to register appliance"
-                    );
-                }
-
-
-                message.innerHTML = `
-
-                    <div class="alert alert-success">
-
-                        Appliance registered successfully!
-
-                        Loading your new appliance...
-
-                    </div>
-
-                `;
-
-
-                applianceForm.reset();
-
-
-                document.getElementById(
-                    "registerApplianceSection"
-                ).style.display =
-                    "none";
-
-
-                document.getElementById(
-                    "dashboardContent"
-                ).style.display =
-                    "block";
-
-
-                const appliancesSection =
-                    document.getElementById(
-                        "appliancesSection"
-                    );
-
-
-                if (appliancesSection) {
-
-                    appliancesSection.style.display =
-                        "block";
-                }
-
-
-                /* Add new appliance */
-
-                appliances.push(
-                    data
-                );
-
-
-                /* Select new appliance */
-
-                await selectAppliance(
-                    data.id,
-                    true
-                );
-
-
-                message.innerHTML =
-                    "";
-
-
-            } catch (error) {
-
-                console.error(
-                    "Registration Error:",
-                    error
-                );
-
-
-                message.innerHTML = `
-
-                    <div class="alert alert-danger">
-
-                        ${escapeHtml(
-                            error.message
-                        )}
-
-                    </div>
-
-                `;
-            }
+    applianceForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const message =
+            document.getElementById("applianceMessage");
+
+        const applianceType =
+            document.getElementById("applianceTypeInput").value;
+
+        const brand =
+            document.getElementById("brandInput").value;
+
+        const model =
+            document.getElementById("modelInput").value;
+
+        const interval =
+            document.getElementById("intervalInput").value;
+
+        const installationDate =
+            document.getElementById("installationDate").value;
+
+        const lastServiceDate =
+            document.getElementById("lastServiceDate").value;
+
+        const allowedModels = [
+            "KENT Elegant",
+            "KENT Grand",
+            "KENT Sterling Star"
+        ];
+
+        if (
+            applianceType !== "Water Purifier" ||
+            brand !== "KENT" ||
+            !allowedModels.includes(model)
+        ) {
+            message.innerHTML = `
+                <div class="alert alert-warning">
+                    Please select Water Purifier → KENT →
+                    KENT Elegant, KENT Grand, or KENT Sterling Star.
+                </div>
+            `;
+            return;
         }
-    );
-}
 
+        if (!installationDate || !lastServiceDate || !interval) {
+            message.innerHTML = `
+                <div class="alert alert-warning">
+                    Please fill in all appliance maintenance fields.
+                </div>
+            `;
+            return;
+        }
+
+        if (new Date(lastServiceDate) < new Date(installationDate)) {
+            message.innerHTML = `
+                <div class="alert alert-warning">
+                    Last service date cannot be earlier than the installation date.
+                </div>
+            `;
+            return;
+        }
+
+        try {
+            const response = await fetch(`${API_URL}/appliances/`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    user_id: Number(userId),
+                    appliance_type: applianceType,
+                    brand: brand,
+                    model: model,
+                    installation_date: installationDate,
+                    last_service_date: lastServiceDate,
+                    maintenance_interval: Number(interval)
+                })
+            });
+
+            const data = await readResponse(response);
+
+            message.innerHTML = `
+                <div class="alert alert-success">
+                    Appliance registered successfully! Loading your appliance...
+                </div>
+            `;
+
+            applianceForm.reset();
+
+            const registerSection =
+                document.getElementById("registerApplianceSection");
+
+            const dashboardContent =
+                document.getElementById("dashboardContent");
+
+            const appliancesSection =
+                document.getElementById("appliancesSection");
+
+            if (registerSection) registerSection.style.display = "none";
+            if (dashboardContent) dashboardContent.style.display = "block";
+            if (appliancesSection) appliancesSection.style.display = "block";
+
+            appliances.push(data);
+
+            await selectAppliance(data.id, true);
+
+            message.innerHTML = "";
+        } catch (error) {
+            console.error("Registration Error:", error);
+
+            message.innerHTML = `
+                <div class="alert alert-danger">
+                    ${escapeHtml(error.message)}
+                </div>
+            `;
+        }
+    });
+}
 
 /* =========================================================
    START DASHBOARD
    ========================================================= */
 
 loadAppliances()
-    .then(function () {
-
+    .then(async function () {
         updateAskAIDMModel();
-
-        return loadBookingHistory();
-
+        await loadBookingHistory();
+        await loadMaintenanceProposals();
     })
     .catch(function (error) {
-
-        console.error(
-            "Dashboard startup error:",
-            error
-        );
-
+        console.error("Dashboard startup error:", error);
     });
