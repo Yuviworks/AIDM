@@ -1,0 +1,772 @@
+KENT Sterling Star manual (text extracted from uploaded KENT Sterling Star product code 11139 PDF).
+<PARSED TEXT FOR PAGE: 1 / 10>
+Marketed by:
+KENT RO SYSTEMS LTD.
+E-6, 7 & 8, Sector-59, Noida, U.P.-201 309, India.
+E-mail: sales@kent.co.in | Website: www.kent.co.in 
+Manufactured by:
+KENT RO SYSTEMS LTD.
+1) Khasra No. 93, Village-Bantakhedi, Tehsil-Roorkee,
+ District-Haridwar, Uttarakhand-247 668, India.
+2) A-6, Sector-87, Noida-201 305, U.P., India.
+HK<NLMHF>K<HFIE:BGML<HGM:<MHNK
+NLMHF>K
+:K>(?<>K:M
+E-6, 7 & 8, Sector-59, Noida, U.P.-201 309, India. Call: 92-789-12345 
+E-mail: service@kent.co.in or visit us at www.kent.co.in 
+Piyo Aur Healthy Raho
+SINGLE CABINET
+Built-in Hydrostatic Tank
+• Very high purification capacity 25l/hr
+• 6l in-built storage tank
+• Smart space-saving design
+• Helps maintain décor of your kitchen
+SterlingStar
+9RHIVXLIGSYRXIV63;EXIV4YVMƼIV
+RO+UV+UF+TDS Control
+Digital Display of Minerals and Purity
+<PARSED TEXT FOR PAGE: 2 / 10>
+to KENT
+1. KENT TECHNOLOGY - A Breakthrough in Water Purification 1
+2. Salient Features 2
+3. Items in the Box 2
+4. Important Instructions 3
+5. Reverse Osmosis Process 4
+6. UV Process 4
+7. Water Flow Diagram 5
+8. Electrical Circuit Diagram 5
+9. Sterling Star Operations 6
+10. Automatic Operation 9
+11. Installation Instructions 9
+12. TDS Adjustment 10
+13. Starting-up the Purifier 10
+14. Recommended Usage of Rejected Water 10
+15. Maintenance 11
+16 Important Safety Instructions 11
+17 Warning 12
+18 Technical Specifications 12
+19. Testing Information 12
+Table of Contents Dear Customer,
+Welcome to the world of the KENT, leaders of water purification 
+industry in India. With a KENT product, you have all the reasons to 
+smile, because at KENT we take pride in the quality and 
+laboratory-tested performance of our products.
+We are confident that your decision to own KENT Sterling Star 
+Mineral RO™ Water Purifier will go a long way in serving you with 
+pure and mineral enriched drinking water, thus keeping you and 
+your family in good health. We assure you that you will be satisfied 
+with its trouble-free performance and quality which comes without 
+any compromise.
+This manual is an effort towards familiarising you with the operation 
+and maintenance of KENT Sterling Star Mineral RO™ Water 
+Purifier. Before operating the unit, please read it thoroughly and 
+retain it for future reference. To ensure that the warranty of your 
+water purifier is effective, fill up the enclosed warranty card and 
+send the installation report within 15 days of purchase. Should you 
+need further assistance, do not hesitate to contact your nearest 
+KENT dealer or branch. 
+Best Wishes,
+KENT RO SYSTEMS LTD.
+<PARSED TEXT FOR PAGE: 3 / 10>
+KENT TECHNOLOGY - A Breakthrough in
+Water Purification*
+KENT proudly presents KENT Sterling Star Mineral ROTM Water Purifier - a 
+new and advanced domestic water purifier which provides pure & healthy drinking 
+water.
+The futuristic KENT Sterling Star Mineral ROTM Water Purifier, developed 
+at KENT Laboratory broadly comprises of state-of-the-art RO+UV+ 
+UF+TDS+Digital Display of minerals and purity Control System. The initial 
+purification by RO membrane having porosity as fine as 0.0001 microns 
+reduces even the dissolved impurities (hard salts, heavy metals, etc.). Double 
+purification by UV membrane gives additional protection from deadly harmful 
+micro-organisms. Moreover, the patented TDS Control System intelligently 
+retains essential natural minerals in purified water, thus taking total care of 
+your health and wellbeing.
+* Tested & certified by TUV-SUD South Asia (P) Ltd.
+1 2
+Salient Features of KENT Sterling Star Mineral ROTM Water Purifier
+1. Compact single cabinet design 
+for under-the-counter 
+placement. 
+2. Purification by RO+UV+UF+TDS 
+control makes water pure.
+3. Retains essential natural 
+minerals in water with TDS 
+Control Valve.
+4. Real time monitoring and display 
+of purity on a digital screen.
+5. 6 litres inbuilt hydrostatic 
+storage tank makes purified 
+water available on demand.
+6. Fully automatic operation with 
+auto-on/off.
+7. Suitable for brackish / tap water/ 
+municipal water supply.
+8. Suitable for purification of 
+blackish/tap water/municipal 
+corporation water supply.
+9. Tamper-proof RO Purifier.
+10. Membrane fused inside 
+membrane housing.
+11. Ideal for under-the-counter as 
+well as side-by-side placement 
+adjacent to refrigerator.
+12. Computer controlled operations 
+for enhanced purity and long life.
+13. Very High Purification capacity of 
+25l/hr
+1 KENT Sterling Star Mineral ROTM Water Purifier : 1 N
+2 3-Way Connector : 1 N
+3 S.S. Ball Valve : 1 N
+4 Faucet : 1 N
+5 Instruction Handbook : 1 N
+6 Food Grade Pipe ¼” (Blue) : 2.5 m
+7 Food Grade Pipe ¼” (White) : 2.5 m
+8 Food Grade Pipe 3/8” (white) : 2.5 m
+*Tested & certified by TUV-SUD South Asia (P) Ltd.
+Items in the Box
+<PARSED TEXT FOR PAGE: 4 / 10>
+Reverse Osmosis Process
+Reverse Osmosis process, also known as hyper 
+filtration, is the finest filtration process known 
+till date. It ensures reduction of particles as 
+small as ions from a solution. Reverse 
+Osmosis process uses a semi-permeable 
+membrane to reduce salts from potable/ 
+brackish water. In Reverse Osmosis, water 
+pressure is applied to the inlet impure water 
+resulting in squeezing of pure water from the 
+concentrated end of membrane towards the 
+diluted end. Dissolved salts present in water as charged ions, get repelled by 
+the RO membrane and are not allowed to pass through. Similarly, bacteria 
+and germs are also blocked by the ultra fine pores of the RO membrane. 
+These rejected impurities suspended on the concentrated end of the 
+membrane are washed away in a stream of waste water, preventing the 
+membrane from clogging.
+UV Process
+The UV light has shorter wavelength (higher energy) than the visible light. It is 
+called ultra-violet because it is just beyond violet light in the light spectrum. 
+Technically, the ultra-violet light is defined to be any wavelength of light, 
+which is shorter than 400 nanometer. UV rays, which penetrate into the 
+micro-organisms, are absorbed by the DNA of the pathogen in the water. The 
+DNA is altered in such a way that the pathogen cannot reproduce itself. Thus, 
+it is essentially killed and cannot cause infection. This process of DNA 
+modification is called inactivation. 
+3 4
+Important Instructions
+Avoid exposure to direct
+sunlight and installation in
+damp areas.
+Make sure that the purifier is
+connected to normal
+temperature water supply only.
+Avoidsharpbends inpipes.
+Maximum distance between
+the water source and purifier
+should not be more than 3 meters. 
+Make sure that the rejected water 
+pipe is not placed at a level higher 
+than the purifier, otherwise rejected 
+water may flow backwards into 
+the purifier.
+10 M
+Water Source Water in
+Do not try to service the purifier on your own.
+Instead, call service technician for help. 
+Use Genuine KENT spares for optimum performance.
+KENT
+Rejected Water
+Drain
+To keep the storage tank clean,
+it should be drained once in 15 days.
+In case of not using the purifier for more than
+two days, kindly switch off the power supply
+and drain out the storage tank.
+Do not confine the 
+purifier in a cabinet.
+<PARSED TEXT FOR PAGE: 5 / 10>
+5
+Water Flow Diagram
+Electrical Circuit Diagram
+It is certified that KENT RO Water Purifier purchased as under
+w.e.f. 1st Jan. 2018 carries 1 Year Warranty + 3 Years of Free Service*.
+(Visit/Service charges will not be charged, however parts if replaced shall be charged) 
+Serial No. ....................................................................
+Purchase Date.........................................................Installation Date........................................
+Service Provider’s
+Name & Address
+with Stamp
+Marketed by: KENT RO SYSTEMS LTD. 
+E-6, 7 & 8, Sector-59, Noida, U.P.-201 309, India. E-mail: service@kent.co.in | Website: www.kent.co.in | Customer Care: 92-789-12345
+*To avail this scheme of 3 Years of Free Service, 
+customer must download the KENT Service App at the 
+time of installation. Also future service request must 
+be raised via KENT Service App to avail free service.
+Terms & Conditions applicable are mentioned overleaf. 
+To request for service 24x7,
+download KENT Service App
+To speak to customer care executive call: 92-789-12345
+by scanning
+the QR code
+or by giving
+a missed call:
+9212252852
+*
+Product: KENT Sterling Star
+Product Code: 11139
+5
+Raw Water
+Reject Water
+1
+2
+3
+4
+7
+9
+8
+13 14
+15
+11
+10
+12
+6
+16
+S.NO. SP - CO. ITEM DESCRIPTION
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+SEDIMENT FILTER
+SOLENOID VALVE
+ACTIVATED CARBON FILTER
+LOW PRESSURE SWITCH
+BOOSTER PUMP
+20035
+20010
+20028
+20005
+20009
+20758
+20386
+20036
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+ UF FILTER
+RO MEMBRANE SHF
+FLOW RESTRICTOR TUBE
+HYDROSTATIC STORAGE TANK
+HIGH PRESSURE SWITCH
+20034
+20020
+20058 NON RETURN VALVE
+20003
+13
+20183 FAUCET
+14
+15
+20015 POST CARBON FILTER
+20541 UV CHAMBER
+TDS CONTROL VALVE
+16 20441 TDS SENSOR
+SMPS
+P
+N
++
+-
+LPS
+BALLAST 24VDC
+PUMP
+SOLENOID
+VALVE
+UV CHAMBER
+LED
+DISPLAY
+TDS
+SENSOR
+HPS
+2
+3
+1
+5
+10
+9
+11
+7
+8 4
+Single Phase
+100-250 V AC, 50-60 Hz.
+6
+1
+2
+3
+4
+5
+6
+7
+ITEM DESCRIPTION
+1
+2
+3
+4
+5
+6
+7
+8
+9
+S.NO.
+8
+9
+10
+SPARE PART CODE
+11
+LOW PRESSURE SWITCH (LPS)
+SOLENOID VALVE
+BOOSTER PUMP
+COMPUTER CONTROL BALLAST
+UV CHAMBER
+PUMP HEAD
+UV LAMP
+20035
+20028
+20005
+20059
+20541
+20540
+20441 TDS SENSOR
+LED DISPLAY
+20016 SMPS
+21869
+21870
+20036 HIGH PRESSURE SWITCH
+<PARSED TEXT FOR PAGE: 6 / 10>
+KENT RO SYSTEMS LTD.
+E-6,7 & 8, Sector-59, Noida, U.P.-201 309, India.
+Ph.: 92-789-12345
+E-mail: service@kent.co.in | Website: www.kent.co.in 
+Terms & Conditions of Warranty 
+KENT warrants all new products manufactured by it to be free from defects in material and workmanship under 
+normal usage and service from the date of purchase as under:
+1. It is essential for the customer to download the 
+KENT Service App either on Android or iOS and the 
+customer should lodge a service request via App 
+only.
+2. In case of emergency during the warranty period, 
+the customer may lodge a service request at our 
+Call Centre Ph. 92-789-12345.
+3. The warranty period commences from the date of 
+installation by the first end-user. During this 
+warranty period of one year, KENT Purifiers or its 
+Authorised Service Provider (ASP) will replace or 
+repair any part of KENT Purifiers, that in the opinion 
+of KENT Purifiers or its ASP, would be defective in 
+operation due to faulty material or workmanship 
+(i.e. manufacturing defects) with the exception of 
+consumables such as Sediment Filter, Carbon Filter 
+and RO/UF Membrane. However, if the RO/UF 
+Membrane gets clogged within first one year and/or 
+if the filters get clogged within first six months, they 
+shall be cleaned / repaired / replaced at no extra 
+charge.
+4. In addition to this, KENT will also provide free 
+service for a period of next 3 years, wherein 
+Visit/Service charges will not be charged, however 
+parts if replaced shall be charged.
+5. Visit/Service charges will not be charged only for 
+customers residing within 25kms of municipal 
+limits, for other areas additional charges shall be 
+applicable.
+6. The product's plastic body is not covered under 
+warranty and hence, it must be handled with care to 
+guard against breakage.
+7. The original purchaser of the unit can avail services 
+under warranty at the point of sale, by producing the 
+damaged part(s) along with the original invoice.
+8. This warranty is void if the unit is not operated under 
+normal municipal water or well water conditions or 
+is subjected to the temperature above 40°C.
+9. Product returned to KENT Purifiers or its ASP for 
+warranty examination must be shipped freight 
+prepaid.
+10. KENT Purifiers or its ASP shall not be held liable for 
+claims exceeding the cost of repair of the defects in 
+workmanship.
+11. This warranty agreement shall not be interpreted to 
+render KENT Purifiers or its ASP liable for injuries 
+or damages of any kind-direct, consequential or 
+contingent to persons or property.
+12. KENT Purifiers or its ASP shall not be held 
+responsible by representative or buyer for failure to 
+abide by any of the obligations of this warranty 
+agreement if such failures are the result of 
+circumstances of Forces Majeures: such as, but not 
+limited to, floods, earthquakes, transportation 
+strikes, labour disputes with outside suppliers or 
+any other conditions beyond the control of KENT 
+Purifiers or its ASP.
+13. KENT Purifiers or its ASP shall not be held liable for 
+repair or alterations made without prior written 
+approval; for products clogged by suspended 
+matter, precipitates or biological growth; or for 
+failures resulting from the lack of proper 
+maintenance.
+14. KENT Purifiers or its ASP cannot and shall not be 
+held liable for any sickness or illness due to the 
+consumption of drinking water from any water 
+purifier supplied by KENT Purifiers, since KENT 
+Purifiers or its ASP does not have any control over 
+the maintenance and usage of water purifier.
+15. This warranty agreement excludes all products/ 
+component parts or damage to any part of this 
+water purifier which, in the opinion of KENT 
+Purifiers or its ASP, have been subjected to misuse; 
+misapplication; negligence; alteration; accident or 
+operation contrary to our instructions, 
+incompatibility with accessories not installed by 
+KENT Purifiers or its ASP, or that have been 
+repaired with component parts other than those 
+manufactured by or obtained from KENT Purifiers 
+or its ASP. Damage caused by freezing, flood, fire or 
+Act of God is not covered by this warranty. In all such 
+cases regular charges will apply. This limited 
+warranty does not include service to diagnose a 
+claimed malfunction in this unit.
+16. KENT Purifiers reserves the right to alter or 
+improve design and specifications at any time, 
+without any contingent obligations to prospective 
+buyers or owners of the products previously sold.
+17. Any disagreements and obligations based upon the 
+purchase of KENT Purifiers products and thereby 
+imposed on KENT Purifiers or its ASP shall be 
+governed by and construed according to the laws of 
+INDIA and subject to the jurisdiction of Delhi Courts 
+only.
+18. KENT Purifiers or its ASP assumes no warranty 
+liability in connection with this water purifier other 
+than that specified herein. This warranty is in lieu of 
+all other warranties, expressed or implied, 
+including warranties of fitness for a particular 
+purpose. KENT or its ASP does not authorise any 
+person or representative to assume for them any 
+other obligations on the sale of this water purifier.
+19. Under no circumstances, the liability of KENT 
+Purifiers or its ASP shall exceed the value of the 
+product.
+20. Under no circumstances are the terms mentioned 
+above negotiable and no employee of KENT 
+Purifiers or its ASP has the authority to supersede 
+them.
+ Why is it essential to download the KENT Service 
+Application?
+1. Customer can lodge a service request/complaint
+anytime (24x7).
+2. The customer can track/monitor the progress
+of service request/complaint.
+3. Complete case history of the services done
+can be viewed.
+4. Regular feedback & offer details on the App.
+To download the App
+scan the QR code
+<PARSED TEXT FOR PAGE: 7 / 10>
+6
+KENT Sterling Star
+HIGH
+GOOD
+LOW
+FAILURE
+1. Filter Life Indicator
+2. Kent Logo
+3. Mineral Content In Purified Water
+4. Warning Indicator
+5. Service Help line number
+Under normal runing condition and without 
+any fault, the users will be greeted with a 
+screen as shown in figure
+If the TDS level in the purified water is within 
+the permissible range, the indicator would be 
+in green Zone i.e Good
+Screen Explained
+Normal Runing Condition
+Mineral Content - Good
+2 1
+3
+4 5
+GOOD
+GOOD
+HIGH
+Mineral Content - High
+If the TDS level in the purified water is more 
+than permissible range, the indicator would be 
+in Red Zone. i.e High
+Sterling Star Operations
+<PARSED TEXT FOR PAGE: 8 / 10>
+7 8
+LOW
+FAILURE
+GOOD
+Mineral Content - Low
+No Input Water1
+If the TDS level in the purified water is less 
+than permissible range, the indicator would be 
+in Yellow Zone. i.e Low
+In case of no water input, Kent logo will be 
+blinking, that means no water input
+FAILURE
+FAILURE
+HIGH, GOOD & LOW TDS bands will be blinking 
+Service call number will be continuous ON. No 
+Buzzer Sound for TDS Sensor Fault
+Failure and Call Service Icon will be ON 
+Continuous. Buzzer will beep twice at an interval 
+of 9 Secs for 50 cycles. After 50 cycles buzzer 
+will go OFF 
+TDS Sensor Fault
+UV Lamp Open/ Not present 
+FAILURE
+Failure and Call Service Icon will be ON 
+Continuously.
+UV Fault:
+Buzzer will beep continuously @ 50mSec 
+ON,1.5Sec OFF rate.
+Inlet SV or RO Pump Fault:
+Buzzer will beep continuously @ 50mSec 
+ON,1Sec OFF rate.
+AF SV Fault:
+Buzzer will beep continuously @ 50mSec ON, 
+0.5Sec OFF rate.
+Service call number will be continuous ON. Filter 
+life last bar will be blinking 
+Buzzer will beep for 4 times at an interval of 2 
+seconds once for 30 seconds. This will repeat in 
+every 2 Hrs 
+Call service engineer for help
+Service call number will be continuous ON. Filter 
+life all bars will be blinking 
+If Product is in standby mode then Buzzer will 
+turn ON continuous
+Call service engineer for help 
+UV tube/ Inlet SV or RO
+Pump/ Auto Flush SV Fault 
+Filter Replacement Pre Indication
+End of Filter Life Lock
+FAILURE
+<PARSED TEXT FOR PAGE: 9 / 10>
+9 10
+• The purifier automatically shuts 
+off when the storage tank is full
+• The purifier does not start when 
+inlet water supply pressure falls 
+below 0.3 kg/cm2
+• The purifier automatically 
+restarts when water level drops 
+below the maximum
+• The purifier doesn’t allow any 
+water rejection in absence of 
+electricity or when the tank is full 
+Automatic Operation
+Recommended Site Preparations:
+• Single Phase 100-250 V AC, 50-60 Hz. 
+supply, not more than 3 m away 
+from the point of installation
+• Raw water supply with ½ inch 
+nipple not more than 3 m away
+• Drain for reject water not more 
+than 3 m away
+• Installation space as per the 
+dimensions of the purifier
+• For optimum inlet pressure, 
+source water tank should be at 
+least 10 ft above the installed 
+purifier
+• Install the purifier near a sink for 
+easy availability of inlet and reject 
+water lines
+• The system and installation need 
+to comply with state and local 
+laws and regulations
+Installation Instructions
+KENT Sterling Star Mineral ROTM Water Purifer is a convenient and 
+user-friendly under-the-counter model.
+TDS Adjustment*
+The unique TDS Controller enables customers to retain the contents of 
+natural minerals in purified water, as per their requirement.
+• Turning the screw of the valve 
+anticlockwise, results in an 
+increased mineral content
+• Turning the screw of the valve 
+clockwise results in a decreased 
+mineral content
+• Switch on the power supply
+• Wait approximately for half an 
+hour so that the storage tank
+is full** 
+• Switch off the power supply
+• Drain off the storage tank by 
+opening the faucet to remove any 
+dust particles from the pipe and 
+storage tank 
+• Close the faucet & switch on the 
+power supply
+• The purifier is ready to use
+Starting-up the Purifier
+Recommended Usage of Rejected Water
+Although the rejected water has high concentration of salts, it is 
+absolutely clean and free from impurities like chlorine, dirt, sand, etc. 
+This rejected water usually goes down the drain, but it can be used for 
+gardening purposes. The high concentration of salts and minerals 
+accelerate plant growth. Rejected water can also be used for cleaning 
+utensils, mopping, etc.
+* Tested & certified by TUV-SUD South Asia (P) Ltd.
+**Tested & certified Flushing Time - 24 Hours.
+Installation Procedure:
+• Fix the SS ball valve to the ¼ inch port of the 3-way connector 
+as shown in the figure
+• Connect the 3-way connector to the raw water supply as 
+shown in the figure. The threaded end of the 3-way connector 
+is fit in–line with the raw water supply. The other end can be 
+connected to a tap or plugged off, if not required
+• Now connect one end of the white pipe 3/8” to the SS ball valve 
+and other end to the lower pushfit elbow fitting on the back 
+side of the purifier labeled as ‘Water In’ 
+• Similarly, connect one end of the blue pipe to the fitting 
+connector labeled as ‘Reject Water’ and leave the other end 
+in the drain
+Use blue pipe for reject water.
+We recommend keeping the TDS at the lowest possible level but not below 50mg/l. 
+• Install the faucet on the kitchen sink or the slab. Connect one 
+end of the white pipe ¼” to the faucet
+and the other end to the fitting connector labeled
+as ‘Faucet’
+• Before connecting the power supply, it is important that you 
+perform the following functions:
+i Open the SS ball valve (Handle parallel to the ball 
+ valve) to start the flow of water into the purifier
+ii Wait for 2-3 minutes to ensure that the filters are 
+ soaked in water
+<PARSED TEXT FOR PAGE: 10 / 10>
+11 12
+Maintenance
+To ensure that the purifier operates at its best, a routine maintenance 
+must be performed. The frequency of the maintenance will greatly 
+depend upon the raw water quality and consumption of purified water.
+• Storage tank must be drained 
+once in a week 
+• Replace sediment filter and 
+activated carbon filter once in
+12 months or earlier if they get 
+clogged. It is recommended to 
+change the FRT along with 
+the filters
+• Replace RO membrane once in
+a year or earlier if it gets clogged
+• Replace UV lamp once a year
+• In the event of not using the 
+purifier for a long time (while 
+going for a holiday, tour, etc.), 
+ensure that you disconnect the 
+power supply, turn off the raw 
+water supply and drain out the 
+storage tank
+Replacement of spare parts are as under:
+-20010 SP Inline Sediment Filter 8"
+-20009 SP Inline Carbon Filter 8"
+-20758 SP RO Membrane SHF
+-20015 SP Post Carbon Filter (Blue)
+-20003 SP Hollow Fibre Membrane (RO)
+-20020 SP FRT 300/450
+Note: Filters and membranes are consumables. Their replacement time is 
+dependent on the quality of raw water and water consumption. They are not 
+covered under the warranty. However, if a filter chokes within six months 
+and a membrane within a year, it will be cleaned/repaired/replaced free of 
+cost. Changing the filters and system inspection is available on call. The 
+treatment capacity of RO membrane will reduce with time due to clogging of 
+pores of membranes.
+This reverse osmosis system contains a replaceable component critical to
+the efficiency of the system. Replacement of the reverse osmosis component
+should be with one of identical specifications as defined by the manufacturer,
+to ensure the same efficiency and contaminant reduction performance.
+* Purification capacity tested for raw water having TDS level of 750 ppm at room temperature.
+Technical Specifications
+Testing Information
+The System has been tested according to IS 10500:2012 (Standards for drinking water as per 
+Bureau of Indian Standards) for reduction of the hazardous substances.
+Important Safety Instructions
+Warning
+1. If the supply cord is damaged, it must be replaced by the original part in 
+order to avoid hazard.
+2. Children should be supervised to ensure that they do not play with
+the appliance.
+3. This appliance is not intended for use by persons (including children) with 
+reduced physicasensory or mental capabilities, or lack of experience and 
+knowledge, unless they have been given supervision or instruction 
+concerning use of the appliance by a person responsible for their safety.
+• Do not operate the UV-C emitter when it is removed from the appliance 
+enclosure.
+• Read the maintenance instructions before opening the appliance. 
+• The appliance must be disconnected from the supply before replacing 
+the UV-C emitter.
+Product
+Product Code
+Product Generic Name
+Product Colour
+Applications
+Purification Production Rate
+Body Material
+Mounting
+Dimensions (mm)
+Inlet Water Pressure / Temp. (Min.)
+Inlet Water Pressure / Temp. (Max.)
+Min./Max. Operating pH
+Filter Cartridge
+UV Lamp Wattage
+Life of UV Lamp
+UF Membrane
+RO Membrane
+Storage Capacity
+Maximum Duty Cycle
+Net Weight
+Booster Pump Voltage
+Total Power Consumption
+Input Power Supply
+IP Number
+KENT Sterling Star
+111139
+Water Purifier
+White
+Suitable for Brackish/Tap Water/Municipal Water Supply
+Upto 25 l/hr.*
+ABS Food Grade Plastic
+Under-the-counter 
+455 (L) x 245 (W) x 420 (H)
+0.3 kg/cm2
+4.0 kg/cm2
+6.5-8.0
+Sediment, Activated Carbon, UF and Post Carbon
+11 W
+5000 hrs. of operation
+0.01-0.1 microns
+Thin Film Composite RO 
+6 Litres
+125 l/day
+12.1 kg
+24V DC
+60 W
+Single Phase 220±250 V, AC, 50 Hz.
+IPX1

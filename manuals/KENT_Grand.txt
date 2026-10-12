@@ -1,0 +1,516 @@
+KENT Grand manual (OCR extracted from uploaded KENT Grand product code 11119 PDF).
+\n===== PAGE page-1 =====\n
+KENT GRAND KENT
+Mineral RO’
+j
+KE NT RO + UF + UV in Tank + TDS Control eee * ae
+
+Mineral RO” | ; :
+eA .e ©
+BOUSECREURIT Instructions Handbook
+ef Sf, i— ‘£2
+
+hay
+UF >
++
+
+OS's
+NOLOGY~
+
+* NTT Dissolved Impurities
+Retains Essential Minerals oe
+Multiple Purification ~~
+RO + UF + UV in Tank + TDS Control
+
+Kent Deta Hai
+
+Sabse
+Shudh Paani
+
+Mineral RO™ and © 2005 KENT RO Systems Ltd.
+The process & purifier is patented vide patent no. 199716.
+
+4
+
+\ / Marketed by:
+KENT RO SYSTEMS LTD.
+E-6, 7 & 8, Sector-59, Noida, U.P.-201 309, India.
+\ E-mail: sales@kent.co.in | Website: www.kent.co.in
+
+Innovations for Manufactured by:
+Better Living KENT RO SYSTEMS LTD.
+1) Khasra No. 93, Village-Bantakhedi, Tehsil-Roorkee,
+District-Haridwar, Uttarakhand-247 668, India.
+
+2) A-6, Sector-87, Noida-201 305, U.P., India.
+For customer complaints, contact our Customer Care Officer at:
+
+E-6, 7 & 8, Sector-59, Noida, U.P.-201 309, India. Call: 92-789-12345
+E-mail: service@kent.co.in or
+
+\n===== PAGE page-2 =====\n
+KENT
+MW Mineral RO”
+eLcorne
+to KENT HOUSE of PURITY
+fe)
+
+Dear Customer,
+Table of Contents
+
+At the outset, allow us to thank you for your trust in KENT water
+
+purifier. We take pride in our reputation for product quality and 1. KENT Technology - A Breakthrough in Water Purification 1
+
+industry proven performance. We are certain that your decision 2. Salient Features of KENT Grand 1
+
+to own KENT Grand Mineral RO™ Water Purifier will go a long
+
+way towards keeping you and your family in good health. We 3, _ Items in the Box 1
+
+are confident that you will be satisfied with its performance and 4, — Important Instructions 2
+
+that it will serve your need for safer and cleaner drinking water
+
+without any compromise. 5. Reverse Osmosis Process 3
+6. UV Process 3
+
+This guide will help you in getting the best out of your water
+purifier. Please go through this booklet to familiarise yourself with 7. Water Flow Diagram 4
+its operation and maintenance. In case you need any further
+
+. Electrical Circuit Di 4
+information, contact your nearest KENT dealer or branch. : acca ACHE)
+; 9. UVLED Failure Alarm 5
+Best Wishes,
+12. Automatic Operation 5
+13, Installation Instructions 5
+KENT RO SYSTEMS LTD.
+14. TDS Adjustment iG
+15. Starting-up the Purifier 7
+16. Recommended Usage of Rejected Water i
+17, Maintenance 7
+18. Important Safety Instructions 8
+19. Technical Specifications 9
+
+20. Testing Information 9
+\n===== PAGE page-3 =====\n
+KENT TECHNOLOGY - A Breakthrough in
+Water Purification*
+
+Presenting KENT Grand Mineral RO™ Water Purifier; it uses futuristic and state-of-the-art
+technology to provide purer and healthier drinking water.
+
+the heart of KENT Grand Mineral RO™ Water Purifier is a Reverse Osmosis membrane with
+capillaries as small as 0.0001 microns that reduce even dissolved impurities (salts and heavy metals)
+and even converts hard water to sweet and purer drinking water. The KENT Grand Mineral RO™
+Water Purifier also allows the user to control the Total Dissolved Solids (TDS) level of purified water.
+
+Raw
+Water
+
+r
+
+Bacteria Cysts Essential Minerals
+
+Pure Water Tank
+
+Salient Features of KENT Grand Mineral RO™ Water Purifier
+
+e Water purifier with UV Disinfection in tank to e Fully automatic operation, with auto-on and
+keep purified water pure auto-off function
+e High water recovery** e RO Membrane fused inside membrane
+e ~Wall-mountable KENT Technology water housing to prevent tampering
+purifier ¢ Vertically mounted SMPS for protection
+e Purification by RO + UF + TDS Control + UV from water
+in tank makes water pure e Use of push-fit fittings for leakage and
+¢ — Inbuilt TDS Controller that allows adjustment maintenance free performance
+of TDS level of purified water ¢ Compact design, takes less spGrand
+e Suitable for Purification of Brackish / Tap for installation
+
+Water/ Municipal Water Supply ¢ ABS construction for corrosion free use
+¢ 8L storage tank with water level indicator
+
+Items in the Box
+
+1. KENT Grand Mineral RO™ Wvater Purifier :  1N
+
+2, 8-Way Connector 2 SN
+
+3, SS, Ball Valve : IN
+
+4. Food Grade Pipe - 0.635 Cm (White) 2.5m
+
+5. Food Grade Pipe - 0.952 Cm (White) 2.5m
+
+6. Screws & Plastic Inserts :  2Neach
+7. Sticker Center Drill : IN
+
+8. Warranty Card : IN
+
+* Tested & certified by TUV-SUD South Asia (P) Ltd. **High water recovery is based on standard testing conditions
+1
+
+Important Instructions
+
+Avoid exposure to direct sunlight
+and installation in damp areas.
+
+4 >
+Make sure that the temperature
+of water entering the purifier
+is within 10° C to 40° C.
+
+Make sure that the rejected water pipe
+is not placed at a level higher from the
+purifier, otherwise rejected water may
+flow backwards into the purifier.
+
+a”
+<— 10M S45 ez
+Water Sourcep
+
+Water in
+
+The maximum distance between the
+water source and the purifier should
+not be more than 3 meters.
+
+Avoid sharp bends in the pipe.
+Do not bend or block the reject
+water pipe.
+
+Do not confine the
+purifier in a cabinet.
+
+In case of not using the purifier for more than two
+days, kindly switch off the power supply and drain
+the storage tank.
+
+To keep the storage tank
+clean, it should be drained
+once in 15 days.
+
+KENT
+
+GEMUIME
+SPARE PARTS
+
+Use Genuine KENT Spares for optimum performance.
+
+COSNLOD
+Ts
+
+Do not try to service the purifier on your own. Instead,
+call service technician for help.
+
+“Line drawing of product shown above is for representation purpose only
+
+\n===== PAGE page-4 =====\n
+: Water Flow Diagram
+Reverse Osmosis Process
+
+eS
+ag NO, [SPARE PART CODE] _ ITEM DESCRIPTION
+Te eve se CBHESS TEES, also ow) as hyper Feed Water y fed En EST
+filtration, is the finest filtration process known till date. The Storage Tank Under Pressure a ‘open; me it 5 ST SEDIMENT FILTER
+A ps2i) jater
+process ensures reduction of particles as small as ions 5 u 2002s SG ENOIRNALVE:
+: . zg c2ooss J)  [__20005 | BOOSTER PUMP
+from a solution. Reverse Osmosis uses a semi-permeable . A x 5 20009 "ACTIVATED CARBON FILTER
+: Baw eve | © |__ 20034
+membrane to reduce salts from potable/ brackish water. In TREATED Z. REJECTED ° - —— SE
+Reverse Osmosis, water pressure applied to the concen- WATER << Z._ CONTAMINANTS} 20506) 7 s0050 FIO WIRES RIGTORTUES
+3 ; ; sis int (DILUTE) ~ )' Z; (CONCENTRATE) 2 | __20004 | UF MEMBRANE
+trated side forces the process of osmosis into reverse E Z Soe tas it
+. : 10 | 20621 | UVLED
+Under enough pressure, treated water is "squeezed" g ol eS| cE Sac eaan ENOAIRGTURNSVALVE
+through the membrane from the concentrated side to the Water Flow o 12 20526 WATER STORAGE TANK
+13 | 20029 | FLOAT MICRO SWITCH
+diluted side. Salts dissolved in water as charged ions are Semipermeable Waste Stream —
+7 20004)
+repelled by the RO membrane. The rejected impurities on Membrane to Drain 4)
+the concentrated side of the membrane are washed away so —
+in a stream of waste water and thus do not get
+accumulated, as in a traditional filter. ft
+4 SIRs
+(20034)
+UV Process Tew >
+The UV light has shorter wavelength (higher energy) than the visible light. It is called ultra-violet (20008)
+because it is just beyond violet light in the light spectrum. Technically, the ultra-violet light is §
+defined to be any wavelength of light, which is shorter than 400 nanometer.
+
+Reject Water
+
+UV rays, which penetrate into the micro-organisms, are absorbed by the DNA of the pathogen
+in the water. The DNA is altered in such a way that the pathogen cannot reproduce itself. Thus,
+it is essentially killed and cannot cause infection. This process of DNA modification is called
+inactivation eel
+
+(20005)
+
+[E]e00:0)
+raw Water >
+
+Electrical Circuit Diagram
+
+Eno] somenurcooe] [EM DESCRIPTION
+20016 [sus
+20035 [LOW PRESSURE SWITCH,
+Wavelength(nm) 700 20029 | FLOAT MICRO SWITCH
+20028 | SOLENOID VALVE
+[2] J ves | e0035) [BB] | Feoat |20029) 20005 ‘BOOSTER PUMP
+20059 | _PUMP HEAD
+; _ . . wm 20620 | _UVLED DRIVER
+X-Rays Ultraviolet Visible Infrared Microwaves Radio Pp 20621 UV LED
+
+(20016)
+
+SOLEN‘
+VALVE
+
+(20028)
+
+a fr
+
+L_i6
+
+@) (20621) (20005) (20055)
+
+cE NOTE: The above specifications are subject to modifications for improvement without noticel.
+
+\n===== PAGE page-5 =====\n
+UV LED Failure alarm*
+KENT Grand Mineral RO™ Water Purifier has an in-built feature that sounds an audible alarm if the
+UV LED malfunction. This feature is provided to ensure purity. This UV LED Fail Alarm will sound as
+following
+Two short beeps after every three seconds.
+
+3 Sec. 3 Sec.
+In case such an alarm is audible, kindly switch off the purifier and call the service technician for help.
+
+Automatic Operation
+
+~The purifier automatically shuts off when the «The purifier automatically restarts when water
+storage tank is full level drops below the maximum
+
+e The purifier does not start when inlet water * The purifier does not allow any water rejection in
+supply pressure falls below 0.3 kg/cm? absence of electricity / when tank is full
+
+Installation Instructions
+
+The KENT KENT Grand Mineral RO™ Water Purifier is a product of advanced technology which
+ensures safe and clean drinking water. The purifier is easy and convenient to install
+
+Recommended Site Preparations:
+* Single Phase 100-250 V AC, 50-60 Hz. connection e Sp Grand as per dimensions of the purifier
+
+not more than 3m away from the point of installation 5
+of purifier
+
+Wall/plane surf Grand for mounting two:
+
+screws and holding the machine
+
+e Raw water supply with 2 inch nipple not more e
+than 3m away
+
+The system and installation must comply
+with state and local laws and regulations
+e Drain for rejected water not more than 8m away
+
+Specific Instructions:
+
+¢ KENT Grand Mineral RO™ Water Purifier It is preferable to install the purifier near a
+is a wall mountable purifier. Make sure that it sink so that inlet and reject water lines are
+is only mounted on a wall. Avoid installation easily available
+on wooden and metallic stands
+
+¢ For optimum performance and minimum inlet
+pressure required, ensure that the raw water
+supply tank is at least 10 ft above the
+level at which the purifier is installed
+
+* Tested & certified by TUV-SUD South Asia (P) Ltd.
+
+Installation Procedure:
+
+Step-1 Wall Hanging Diagram
+
+- ks!
+
+Paste the central drill sticker on wall at (3.6 feet to 4.0 Feet from the ground) as per your convenience
+
+BiG wes the sticker is pasted straight on the wall, then drill holes as per the soGrand provided
+on sticker.
+
+3. Now, insert the puff up with the help of a hammer.
+4. Screw in two 10X50 self-taping screws, 5.11 inches (180 mm) apart horizontally.
+5.
+
+Carefully hang the purifier on the wall with the help of wall-mounting slot holes provided on the back side
+of the purifier.
+
+Note:
+
+1. If the wall is not straight or the screws are not properly drilled in an even position, it will damage
+your purifier,
+2. Keep the device away from heat or direct sunlight
+
+Step-2
+®
+bo “,-@ 8
+® ve ae”. oo
+Figure 1. Figure 2. Figure 3.
+
+1. First fix the SS ball valve (marked as no, 4) to the 1/4 inch port of the 3-way connecter (marked as no. 2)
+as shown in figure 2.
+
+es
+
+BO se
+
+Figure 4.
+
+2. Connect the 3-way connector to the raw water supply (marked as no. 1) as shown in the figure 3. The
+3-way connector is fit in line with the raw water supply.
+
+3. The other end of the 3-way connector can be connected to a tap (marked as no.3) as shown in figure
+or can be plugged off if not required.
+
+Step-3
+
+1. Now connect one end of the white pipe to SS ball valve and —
+
+another end to the upper push-fit elbow fitting to the left hand side
+of the purifier labelled as WATER IN, as shown in fig 1
+
+2. Similarly, connect one end of the white pipe to the lower elbow Reus, | woes {|
+fitting connector in tank labelled as REJECT WATER and leave the “gst xa
+other end in the drain, as shown in fig 2 == Da
+Step-4
+
+Before connecting the power supply, it is important that you perform the
+
+following functions:
+
+1. Open the SS ball valve (Handle parallel to the ball valve) to start the
+flow of water into the purifier, as shown in the figure
+
+2, Wait for 2-3 minutes to ensure that the filters are soaked in water.
+Step-5
+
+1. Connect the power supply.
+
+2. Installation is complete.
+\n===== PAGE page-6 =====\n
+TDS Adjustment*
+
+The unique TDS Controller enables customers to retain the contents of natural minerals in purified water, as
+per their requirement.
+e Turing the screw of the valve anti-clockwise, ¢ Turing the screw of the valve clockwise,
+
+results in an increased mineral content results in a decreased mineral content
+
+Starting-up the Purifier
+
+the pipes and storage tank
+e Wait till the storage tank fully fills up ** * Close the drain plug & switch on the power supply
+
+e Switch on the power supply
+
+* — Switch off the power supply ¢ The purifier is ready to use
+e Drain the storage tank by opening the drain
+
+plug present at the bottom of the storage tank
+
+so as to remove any dust particles present in
+
+Recommended Uses of Rejected Water
+
+Rejected water has high concentration of salts and usually goes down the drain, but if required, can be
+used for gardening purposes. It has high concentration of salts and minerals which accelerate plant growth
+Rejected water can also be used for cleaning purposes, i.e. utensils cleaning, mopping the floor etc
+
+Maintenance
+
+To ensure that the purifier operates at its optimum level, a routine maintenance must be performed
+The frequency of the maintenance will greatly depend upon the raw water quality and consumption
+of treated water.
+
+e Storage tank must be drained once in 2 weeks. © Replace the RO membrane once in a year
+To do so, switch off the power supply, open the + If you are not going to use the purifier for a long
+drain plug at the bottom of the tank & allow the time (in case you are on a holiday, tour or out of
+water to drain. Then screw back the plug and home}, make sure that you disconnect the
+switch on the power supply power supply, turn off the raw water supply and
+¢ Replace sediment, activated carbon & post drain the storage tank
+carbon when the filter change alarm is audible OR
+after every 12 months. It is recommended to
+change the FRT when the filters are replaced
+
+The reverse osmosis system contains a replaceable treatment component critical for the effective reduction
+of total dissolved solids and that product water shall be tested periodically to verify that the system is
+performing properly.
+
+* Tested & certified by TUV-SUD South Asia (P) Ltd
+™ Tested or certified flushing time - 24hrs
+
+Replacement of spare parts are as under:
+
+-20010 SP Inline Sediment Filter 8"
+-20009 SP. Inline Carbon Filter 8"
+-20529 SP RO Membrane
+
+-20015 SP Post Carbon Filter (Blue)
+-20003 SP Hollow Fibre Membrane
+-20020 SP FRT 300/450
+
+Note: Filters and membranes are consumables. Their replacement time depends upon the quality of raw water and
+water consumption. They are not covered under the warranty. However, if a filter chokes within six months and a
+membrane within a year, it will be cleaned/repaired/replaced free of cost. Changing the filters and system inspection
+is available on call. The treatment capacity of RO membrane will reduce with time due to clogging of pores of
+membranes
+
+“This reverse osmosis system contains a replaceable component critical to the efficiency of the system. Replacement
+of the reverse osmosis component should be with one of identical specifications as defined by the manufacturer, to
+ensure the same efficiency and contaminant reduction performance.”
+
+Important Safety Instructions
+Ifthe supply cord is damaged, it must be replGrandd by the original part in order to avoid hazard
+* Children should be Grandvised to ensure that they do not play with the appliance
+
+© This appliance is not intended for use by persons (including children) with reduced physicasensory or
+mental capabilities, or lack of experience and knowledge, unless they have been given Grandvision or
+instruction conceming use of the appliance by a person responsible for their safety
+\n===== PAGE page-7 =====\n
+Technical Specifications
+
+Product KENT GRAND
+Product Code 111119
+
+Colour White
+
+Purification Production Rate 20 Linr.
+
+Mounting, Wall-mounted,
+
+Inlet Water Pressure/Temp (Min.) 0.3 kg/cm?/10°C
+
+Min./Max. Operating pH 6.5-8.0
+
+UV LED Wattage O7W
+
+Storage Capacity BL
+
+Membrane Type Thin Film Composite RO
+
+Total Power Consumption 60 W
+
+IP Rating IPX1
+
+* Purification capacity tested for raw water having TDS level of 750 ppm at room temperature.
+
+Testing Information
+
+The System has been tested according to IS 10500:2012 (Standards for drinking water as per Bureau of Indian
+Standards) for reduction of the hazardous substances.

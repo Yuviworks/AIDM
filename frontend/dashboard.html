@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AIDM | Intelligent Maintenance</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- AIDM Styles -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     NAVBAR
+====================================================== -->
+
+<nav class="aidm-navbar">
+
+    <div class="container">
+
+        <div class="aidm-nav-content">
+
+            <div class="aidm-brand">
+
+                <div class="brand-icon">
+                    <i class="bi bi-cpu"></i>
+                </div>
+
+                <div>
+
+                    <div class="brand-name">
+                        AIDM
+                    </div>
+
+                    <div class="brand-subtitle">
+                        Intelligent Maintenance
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="aidm-user-area">
+
+                <div class="user-info">
+
+                    <div class="user-avatar">
+                        <i class="bi bi-person"></i>
+                    </div>
+
+                    <span id="welcomeUser">
+                        Welcome
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="logoutButton"
+                    type="button"
+                    class="logout-btn"
+                >
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                    <span>Logout</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ======================================================
+     MAIN
+====================================================== -->
+
+<main class="container aidm-main">
+
+
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <section class="dashboard-hero">
+
+        <div>
+
+            <div class="hero-eyebrow">
+
+                <span class="status-dot"></span>
+
+                AIDM SYSTEM ONLINE
+
+            </div>
+
+
+            <h1>
+
+                Intelligent maintenance,
+
+                <span>simplified.</span>
+
+            </h1>
+
+
+            <p>
+
+                Monitor your appliance, predict upcoming maintenance,
+                and let AIDM assist you with service discovery and booking.
+
+            </p>
+
+        </div>
+
+
+        <div class="hero-icon">
+
+            <i class="bi bi-robot"></i>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         LOADING
+    ================================================== -->
+
+    <div
+        id="loadingMessage"
+        class="aidm-loading"
+    >
+
+        <div class="spinner-border spinner-border-sm"></div>
+
+        <span>
+            Loading your appliance...
+        </span>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         REGISTER APPLIANCE
+    ================================================== -->
+
+    <section
+        id="registerApplianceSection"
+        class="aidm-card register-card"
+        style="display: none;"
+    >
+
+        <div class="card-header-custom">
+
+            <div class="section-icon">
+                <i class="bi bi-plus-circle"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Register Your Appliance
+                </h3>
+
+                <p>
+                    Register another appliance or add your first appliance to start intelligent maintenance monitoring.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form id="applianceForm">
+
+            <div class="row g-3">
+
+
+                <!-- APPLIANCE TYPE -->
+
+                <div class="col-md-6">
+
+                    <label
+                        for="applianceTypeInput"
+                        class="form-label"
+                    >
+                        Appliance Type
+                    </label>
+
+                    <select
+                        id="applianceTypeInput"
+                        class="form-select"
+                        required
+                    >
+
+                        <option value="">
+                            Select appliance
+                        </option>
+
+                        <option value="Water Purifier">
+                            Water Purifier
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- BRAND -->
+
+                <div class="col-md-6">
+
+                    <label
+                        for="brandInput"
+                        class="form-label"
+                    >
+                        Brand
+                    </label>
+
+                    <select
+                        id="brandInput"
+                        class="form-select"
+                        required
+                    >
+
+                        <option value="">
+                            Select brand
+                        </option>
+
+                        <option value="KENT">
+                            KENT
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- MODEL -->
+
+                <div class="col-md-6">
+
+                    <label
+                        for="modelInput"
+                        class="form-label"
+                    >
+                        Model
+                    </label>
+
+                    <select
+                        id="modelInput"
+                        class="form-select"
+                        required
+                    >
+
+                        <option value="">
+                            Select model
+                        </option>
+
+                        <option value="KENT Elegant">
+                            KENT Elegant
+                        </option>
+
+                        <option value="KENT Grand">
+                            KENT Grand
+                        </option>
+
+                        <option value="KENT Sterling Star">
+                            KENT Sterling Star
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- MAINTENANCE INTERVAL -->
+
+                <div class="col-md-6">
+
+                    <label
+                        for="intervalInput"
+                        class="form-label"
+                    >
+                        Maintenance Interval
+                    </label>
+
+                    <select
+                        id="intervalInput"
+                        class="form-select"
+                        required
+                    >
+
+                        <option value="3">
+                            Every 3 months
+                        </option>
+
+                        <option
+                            value="6"
+                            selected
+                        >
+                            Every 6 months
+                        </option>
+
+                        <option value="12">
+                            Every 12 months
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- INSTALLATION DATE -->
+
+                <div class="col-md-6">
+
+                    <label
+                        for="installationDate"
+                        class="form-label"
+                    >
+                        Installation Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="installationDate"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- LAST SERVICE DATE -->
+
+                <div class="col-md-6">
+
+                    <label
+                        for="lastServiceDate"
+                        class="form-label"
+                    >
+                        Last Service Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="lastServiceDate"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-btn mt-4"
+            >
+
+                <i class="bi bi-plus-lg"></i>
+
+                Register Appliance
+
+            </button>
+
+
+            <div
+                id="applianceMessage"
+                class="mt-3"
+            ></div>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         MY APPLIANCES
+    ================================================== -->
+
+    <section
+        id="appliancesSection"
+        class="aidm-card mb-4"
+        style="display: none;"
+    >
+
+        <div class="section-heading d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+            <div class="d-flex align-items-center gap-3">
+
+                <div class="section-heading-icon">
+                    <i class="bi bi-grid-1x2"></i>
+                </div>
+
+                <div>
+
+                    <div class="small-label">
+                        MY APPLIANCES
+                    </div>
+
+                    <h2 class="mb-1">
+                        Your Registered Appliances
+                    </h2>
+
+                    <p class="mb-0">
+                        Select an appliance to view its maintenance schedule, AI analysis and service options.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="addApplianceButton"
+                class="primary-btn"
+            >
+
+                <i class="bi bi-plus-lg"></i>
+
+                Add Appliance
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="applianceList"
+            class="row g-3 mt-2"
+        ></div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         DASHBOARD CONTENT
+    ================================================== -->
+
+    <div
+        id="dashboardContent"
+        style="display: none;"
+    >
+
+
+        <!-- ==============================================
+             APPLIANCE + MAINTENANCE OVERVIEW
+        =============================================== -->
+
+        <section class="overview-grid">
+
+
+            <!-- APPLIANCE -->
+
+            <div class="aidm-card appliance-card">
+
+                <div class="card-top-row">
+
+                    <div>
+
+                        <div class="small-label">
+                            REGISTERED APPLIANCE
+                        </div>
+
+                        <h2 id="applianceType">
+                            -
+                        </h2>
+
+                    </div>
+
+
+                    <div class="appliance-main-icon">
+                        <i class="bi bi-droplet-half"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="appliance-details">
+
+                    <div>
+
+                        <span>
+                            Brand
+                        </span>
+
+                        <strong id="applianceBrand">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Model
+                        </span>
+
+                        <strong id="applianceModel">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Last Service
+                        </span>
+
+                        <strong id="lastService">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MAINTENANCE -->
+
+            <div class="aidm-card maintenance-card">
+
+                <div class="maintenance-heading">
+
+                    <div>
+
+                        <div class="small-label">
+                            MAINTENANCE MONITOR
+                        </div>
+
+                        <h3>
+                            Service Schedule
+                        </h3>
+
+                    </div>
+
+
+                    <div class="maintenance-icon">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="maintenanceStatus"
+                    class="maintenance-status"
+                >
+                    Checking maintenance...
+                </div>
+
+
+                <div class="maintenance-date">
+
+                    <span>
+                        Next maintenance
+                    </span>
+
+                    <strong id="nextMaintenance">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="maintenance-interval">
+
+                    <span>
+                        Maintenance interval
+                    </span>
+
+                    <strong id="maintenanceInterval">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================================
+             ASK AIDM
+        =============================================== -->
+
+        <section class="aidm-card ask-aidm-card">
+
+            <div class="ask-aidm-header">
+
+                <div class="ask-aidm-title-area">
+
+                    <div class="ask-aidm-logo">
+                        <i class="bi bi-chat-square-text"></i>
+                    </div>
+
+                    <div>
+
+                        <div class="agent-label">
+                            AIDM KNOWLEDGE ASSISTANT
+                        </div>
+
+                        <h2>
+                            Ask AIDM
+                        </h2>
+
+                        <p>
+                            Ask questions about your selected purifier and get answers grounded in its specific maintenance manual.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ask-aidm-model-badge">
+
+                    <i class="bi bi-file-earmark-text"></i>
+
+                    <span id="askAIDMModel">
+                        No purifier selected
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION INPUT -->
+
+            <div class="ask-aidm-input-area">
+
+                <label
+                    for="aidmQuestion"
+                    class="form-label"
+                >
+                    What would you like to know?
+                </label>
+
+
+                <div class="ask-aidm-input-row">
+
+                    <textarea
+                        id="aidmQuestion"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Example: How often should I replace the RO membrane?"
+                    ></textarea>
+
+
+                    <button
+                        type="button"
+                        id="askAIDMButton"
+                        class="ask-aidm-btn"
+                    >
+
+                        <i class="bi bi-stars"></i>
+
+                        Ask AIDM
+
+                    </button>
+
+                </div>
+
+
+                <div class="ask-aidm-hint">
+
+                    <i class="bi bi-info-circle"></i>
+
+                    <span>
+                        Press Ctrl + Enter to ask quickly.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANSWER -->
+
+            <div
+                id="aidmQuestionResult"
+                class="ask-aidm-result"
+                style="display: none;"
+            >
+
+                <div class="ask-aidm-result-header">
+
+                    <div class="ask-aidm-answer-icon">
+
+                        <i class="bi bi-robot"></i>
+
+                    </div>
+
+                    <div>
+
+                        <div class="small-label">
+                            AIDM RESPONSE
+                        </div>
+
+                        <strong>
+                            Maintenance Knowledge
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="aidmQuestionAnswer"
+                    class="ask-aidm-answer"
+                ></div>
+
+
+                <div
+                    id="aidmQuestionSource"
+                    class="ask-aidm-source"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================================
+             AIDM AGENT
+        =============================================== -->
+
+        <section class="aidm-card agent-card">
+
+
+            <!-- AGENT HEADER -->
+
+            <div class="agent-header">
+
+                <div class="agent-title-area">
+
+                    <div class="agent-logo">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <div>
+
+                        <div class="agent-label">
+                            AIDM INTELLIGENT AGENT
+                        </div>
+
+                        <h2>
+                            Your maintenance copilot
+                        </h2>
+
+                        <p>
+                            Analyze maintenance requirements, retrieve
+                            relevant knowledge, discover service centers,
+                            and recommend an available appointment.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="runAgentButton"
+                    class="agent-run-btn"
+                >
+
+                    <i class="bi bi-play-fill"></i>
+
+                    Run AI Agent
+
+                </button>
+
+            </div>
+
+
+
+            <!-- AGENT STATUS -->
+
+            <div
+                id="agentStatus"
+                class="agent-status"
+            >
+
+                <div class="agent-status-inner">
+
+                    <div class="agent-status-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Agent ready
+                        </strong>
+
+                        <p>
+                            Click "Run AI Agent" to analyze your appliance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AGENT RESULTS -->
+
+            <div
+                id="agentResults"
+                class="agent-results"
+                style="display: none;"
+            >
+
+
+                <!-- AGENT PIPELINE -->
+
+                <div class="agent-pipeline">
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Maintenance
+                            </span>
+
+                            <strong>
+                                Analyzed
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            <i class="bi bi-database"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Knowledge
+                            </span>
+
+                            <strong>
+                                Retrieved
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Service
+                            </span>
+
+                            <strong>
+                                Discovered
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Appointment
+                            </span>
+
+                            <strong>
+                                Ready
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- AGENT SUMMARY -->
+
+                <div class="agent-summary-grid">
+
+
+                    <div class="agent-summary-card">
+
+                        <span>
+                            Maintenance Status
+                        </span>
+
+                        <strong id="agentMaintenanceStatus">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="agent-summary-card">
+
+                        <span>
+                            Predicted Maintenance
+                        </span>
+
+                        <strong id="agentMaintenanceDate">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="agent-summary-card">
+
+                        <span>
+                            Service Centers
+                        </span>
+
+                        <strong id="agentCenterCount">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SERVICE CENTER + SLOT -->
+
+                <div class="agent-selection-grid">
+
+
+                    <!-- SERVICE CENTER -->
+
+                    <div class="selection-card">
+
+                        <div class="selection-heading">
+
+                            <div class="selection-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    SERVICE CENTER
+                                </span>
+
+                                <h3>
+                                    Choose a center
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <label
+                            for="agentServiceCenterSelect"
+                            class="form-label"
+                        >
+                            Available service centers
+                        </label>
+
+
+                        <select
+                            id="agentServiceCenterSelect"
+                            class="form-select"
+                        >
+
+                            <option value="">
+                                Select service center
+                            </option>
+
+                        </select>
+
+
+                        <div
+                            id="agentServiceDistance"
+                            class="selection-meta"
+                        ></div>
+
+                    </div>
+
+
+
+                    <!-- TIME SLOT -->
+
+                    <div class="selection-card">
+
+                        <div class="selection-heading">
+
+                            <div class="selection-icon clock-icon">
+                                <i class="bi bi-clock"></i>
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    APPOINTMENT
+                                </span>
+
+                                <h3>
+                                    Choose a time
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <label
+                            for="agentSlotSelect"
+                            class="form-label"
+                        >
+                            Available time slots
+                        </label>
+
+
+                        <select
+                            id="agentSlotSelect"
+                            class="form-select"
+                            disabled
+                        >
+
+                            <option value="">
+                                Select service slot
+                            </option>
+
+                        </select>
+
+
+                        <div class="selection-meta">
+                            Slots depend on the selected service center.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EXPLANATION -->
+
+                <div class="agent-explanation">
+
+                    <div class="explanation-icon">
+                        <i class="bi bi-lightbulb"></i>
+                    </div>
+
+                    <div>
+
+                        <div class="explanation-title">
+                            AI Maintenance Explanation
+                        </div>
+
+                        <p id="agentExplanation">
+                            -
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONFIRMATION -->
+
+                <div
+                    id="agentConfirmation"
+                    class="booking-confirmation"
+                    style="display: none;"
+                >
+
+                    <div class="confirmation-content">
+
+                        <div class="confirmation-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+
+                        <div>
+
+                            <div class="confirmation-label">
+                                READY TO BOOK
+                            </div>
+
+                            <h3>
+                                Confirm your maintenance appointment
+                            </h3>
+
+                            <p>
+                                Review your selected service center
+                                and time slot, then confirm the appointment.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="confirmation-actions">
+
+                        <button
+                            type="button"
+                            id="confirmAgentBooking"
+                            class="confirm-btn"
+                        >
+
+                            <i class="bi bi-check-lg"></i>
+
+                            Yes, Book It
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="cancelAgentBooking"
+                            class="cancel-btn"
+                        >
+
+                            <i class="bi bi-x-lg"></i>
+
+                            Not Now
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BOOKING RESULT -->
+
+                <div
+                    id="agentBookingResult"
+                    class="booking-result"
+                    style="display: none;"
+                ></div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================================
+             SERVICE CENTERS
+        =============================================== -->
+
+        <section class="aidm-card">
+
+            <div class="section-heading">
+
+                <div class="section-heading-icon">
+                    <i class="bi bi-tools"></i>
+                </div>
+
+                <div>
+
+                    <div class="small-label">
+                        SERVICE NETWORK
+                    </div>
+
+                    <h2>
+                        Available Service Centers
+                    </h2>
+
+                    <p>
+                        Service providers available for your appliance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="serviceCenters"
+                class="row g-3"
+            ></div>
+
+        </section>
+
+
+
+        <!-- ==============================================
+             SERVICE HISTORY
+        =============================================== -->
+
+        <section class="aidm-card">
+
+            <div class="section-heading">
+
+                <div class="section-heading-icon history-icon">
+                    <i class="bi bi-clock-history"></i>
+                </div>
+
+                <div>
+
+                    <div class="small-label">
+                        ACTIVITY
+                    </div>
+
+                    <h2>
+                        Service History
+                    </h2>
+
+                    <p>
+                        Your previous service appointments and bookings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="bookingHistory">
+
+                <div class="history-empty">
+
+                    <i class="bi bi-hourglass-split"></i>
+
+                    <span>
+                        Loading service history...
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

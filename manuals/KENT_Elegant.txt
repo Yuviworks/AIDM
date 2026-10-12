@@ -1,0 +1,750 @@
+KENT Elegant manual (OCR extracted from uploaded KENT Elegant product code 11097 PDF).
+\n===== PAGE page-1 =====\n
+ZW Wat
+
+L/
+\.
+
+Innovations for
+Better Living
+
+KENT
+
+Mineral RO”
+
+HOUSE of PURITY
+
+Marketed by:
+
+KENT RO SYSTEMS LTD.
+
+E-6, 7 & 8, Sector-59, Noida, U.P.-201 309, India.
+E-mail: sales@kent.co.in | Website: www.kent.co.in
+
+Manufactured by:
+
+KENT RO SYSTEMS LTD.
+
+1) Khasra No. 93, Village-Bantakhedi, Tehsil-Roorkee,
+District-Haridwar, Uttarakhand-247 668, India.
+
+2) A-6, Sector-87, Noida-201 305, U.P., India.
+
+For customer complaints, contact our Customer Care Officer at:
+E-6, 7 &8, Sector-59, Noida, U.P.-201 309, India. Call: 92-789-12345
+E-mail: service@kent.co.in or visit us at www.kent.co.in
+
+KENT ELEGANT
+
+RO + UF + TDS Control +UV Disinfection in Tank
+COMPACT DESIGN
+
+KENT
+
+Mineral RO"
+
+HOUSE of PURITY
+
+Instructions Handbook
+
+Z-
+
+RETAINS
+ESSENTIAL
+
+Keeps Purified
+Water Pure
+
+In Storage Tank
+o
+
+MINERALS
+
+*T&C Apply
+
+100% HEALTH
+
+100% PURE WATER
+RETAINS ESSENTIAL MINERALS
+
+KENT TECHNOLOGY Kent Deta Hai
+
+Shudh Paani
+
+Reverse Osmosis Water Purifier with UV Sterilization & TDS Controller.
+The process & purifier is patented vide patent no. 199716.
+\n===== PAGE page-2 =====\n
+elcome
+
+to KENT
+
+Dear Customer,
+
+At the outset, allow us to thank you for your trust in KENT Water
+Purifier. We take pride in our reputation for product quality and
+industry proven performance. We are certain that your decision
+to own KENT ELEGANT Mineral RO™ Water Purifier will go a
+long way towards keeping you and your family in good health. We
+are confident that you will be satisfied with its performance and
+that it will serve your need for safer and cleaner drinking water
+without any compromise.
+
+This guide will help you in getting the best out of your water
+purifier. Please go through this booklet to familiarise yourself with
+
+its operation and maintenance. In case you need any further
+information, contact your nearest KENT dealer or branch.
+
+Best Wishes,
+
+KENT RO SYSTEMS LTD.
+
+Table of Contents
+
+1:
+
+© 2 NPAs wD
+
+woes es of se Se
+NSB HF BR SS
+
+KENT TECHNOLOGY - A Breakthrough
+in Water Purification
+
+Salient Features
+
+Items in the Box
+
+Important Instructions
+Reverse Osmosis Process
+UV Process
+
+Water Flow Diagram
+Electrical Circuit Diagram
+UV LED Failure Alarm
+
+Installation Instructions
+
+. TDS Adjustment
+
+. Starting-up the Purifier
+
+Recommended Usage of Rejected Water
+Maintenance
+
+Important Safety Instructions
+
+. Technical Specifications
+
+Testing Information
+
+KENT
+
+Mineral RO”
+
+HOUSE of PURITY
+
+=
+
+o oOo N NN DOD DA a F&F FF Ww WwW DN
+\n===== PAGE page-3 =====\n
+KENT TECHNOLOGY - A Breakthrough in
+Water Purification”
+
+Presenting KENT ELEGANT Mineral RO™ Water Purifier, it uses futuristic and state-of-the-art
+technology to provide purer and healthier drinking water.
+
+At the heart of KENT ELEGANT Mineral RO™ Water Purifier is a Reverse Osmosis membrane
+with capillaries as small as 0.0001 microns that reduce even dissolved impurities (salts and
+heavy metals) and even converts hard water to sweet and purer drinking water. The KENT
+ELEGANT Mineral RO™ Water Purifier also allows the user to control the Total Dissolved
+
+Solids (TDS) level of purified water.
+
+Z
+
+) Raw
+
+=== Water
+
+“T
+@
+
+Reduces
+Bacteria & Cysts
+
+—=—_
+ved Impurities
+ibs
+
+Rejected
+Water
+
+Essential Minerals
+
+UY LED
+IN TANK
+
+Pure Water Tank
+
+Salient Features of KENT ELEGANT Mineral RO™ Water Purifier
+
+Water purifier with UV disinfectionin tank for
+absolute purification
+
+Wall-mountable KENT Technology water purifier
+Purification by RO + UF + TDS Control + UV in
+tank makes water 100% pure
+
+Inbuilt TDS Controller that allows adjustment
+of TDS level of purified water
+
+Suitable for purification of brackish/tap
+water/municipal corporation water supply
+
+Fully automatic operation, with auto-on/off
+function
+
+RO Membrane fused inside membrane
+housing to prevent tampering
+
+Vertically mounted SMPS for protection from
+water
+
+Use of push-fit fittings for leakage and
+maintenance free performance
+
+Compact design, takes less space for
+installation
+
+ABS construction for corrosion free use
+8L storage Tank
+
+Items in the Box
+
+. 3-Way Connector
+. $.S. Ball Valve
+
+. Screws & Plastic Insert
+. Sticker Center Drill
+. Warrnty Card
+
+ONAAE WN
+
+. KENT Elegant Mineral RO™ Water Purifier :
+
+. Food Grade Pipe 1/4 inch (Blue)
+. Food Grade Pipe 3/8 inch (White)
+
+1 No.
+1 No.
+1 No.
+2.5m
+2.5m
+2.No. each
+1 No.
+1 No.
+
+Important Instructions
+
+Avoid exposure to direct sunlight | |
+and installation in damp areas.
+
+a
+
+L@ iL
+
+Make sure that the temperature of
+the water entering the purifier is
+within 10°C-40°C.
+
+{6 |
+
+Reject Water
+
+G
+Sa
+Make sure that the reject water pipe is S=
+not placed at a level higher than the | |
+
+system, otherwise rejected water may _@ |
+
+flow backwards into the purifier.
+
+i}
+I
+
+Maximum distance between the
+water source and the purifier
+should not be more than 3 meters.
+
+Le
+
+IN
+
+Avoid sharp bends in the pipe
+
+| |
+}
+fittings. Do not bend or block the L@ |
+
+reject water pipe.
+
+Do not confine the purifier
+in a cabinet.
+
+i
+
+In case of not using the purifier for | |
+more than two days, kindly switch 6 |
+off the power supply and drain the a
+storage tank.
+
+i}
+i}
+iL
+
+To keep the storaga tank
+clean, it should ba drained
+once in 15 days.
+
+KENT
+
+SPARE PARTS
+
+Use Genuine KENT Spares for
+optimum performance.
+
+CAN
+
+Do not try to service the purifier on
+your own. Instead, call a technician
+for help.
+
+|
+Lo
+
+\n===== PAGE page-4 =====\n
+Reverse Osmosis Process
+
+The Reverse Osmosis process, also known as hyper Feed Water
+
+filtration, is the finest filtration process known till date. Storage Tank Under Pressure
+The process ensures the reduction of particles as small lA |
+
+as ions from a solution. Reverse Osmosis uses a |
+
+semi-permeable membrane to reduce salts from : V
+potable / brackish water. In Reverse Osmosis, water TREATED REJECTED *
+
+[CONTAMINANTS
+CONCENTRATE)
+
+pressure applied to the concentrated side forces the WATER <~
+process of osmosis into reverse. Under enough (DILUTE) eye
+pressure, treated water is "squeezed" through the . ay)
+
+membrane from the concentrated side to the diluted
+
+side. Salts dissolved in water as charged ions are Water Flow | \
+repelled by the RO membrane. The rejected impurities Semipermeable Waste Stream
+on the concentrated side of the membrane are washed Membrane to Drain
+
+away in a stream of waste water, and thus do not get
+accumulated as in a traditional filter.
+
+UV Process
+
+The UV light has shorter wavelength (higher energy) than the visible light. It is called ultra-violet
+because it is just beyond the violet light in the light spectrum. Technically, the ultra-violet light
+is defined to be any wavelength of light, which is shorter than 400 nanometer.
+
+UV rays, which penetrate into the micro-organisms, are absorbed by the DNA of the pathogen
+in the water. The DNA is altered in such a way that the pathogen cannot reproduce itself. Thus,
+they are essentially killed and cannot cause infection. This process of DNA modification is
+called inactivation.
+
+UVB
+
+280-315 UVA
+
+315-400
+
+uve
+200-280
+Wavelength(nm) 400 700
+
+Visible
+
+X-Rays —_ Ultraviolet Infrared Microwaves Radio
+
+Note: The purified water stored in the tank is disinfected using UV LED, which automatically
+switches on for 30 minutes in a two hour cycle.
+
+cy =
+
+Water Flow Diagram
+
+“pas
+‘0
+a =r
+
+(20004)
+
+cI
+
+ao
+C) it [S.No.] SPARE PART CODE] [TEM DESCRIPTION.
+Water 1 20035 LOW PRESSURE SWITCH
+E3 20010 SEDIMENT FILTER
+(20058) 3 20028 SOLENOID VALVE
+4 20005, BOOSTER PUMP.
+5 20009 ACTIVATED CARBON FILTER
+6 20034 TDS CONTROL VALVE
+7 20890 RO MEMBRANE
+iN 8 20018 FLOW RESTRICTOR TUBE
+9 20004 UF MEMBRANE
+10 20621 UV LED
+1 20058 NON RETURN VALVE
+12 20622 WATER STORAGE TANK
+13 20029 FLOAT MICRO SWITCH
+o
+
+<= (20890)
+
+§
+
+Cf
+
+(20028)
+
+(20009)
+
+Reject Water
+
+(20005)
+
+(20035)
+
+2 (20010)
+Raw Water =>
+
+FLOAT | (20029)
+
+SOLENOID]
+
+TTEM DESCRIPTION
+
+20016
+
+SNPS
+
+20035,
+
+LOW PRESSURE SWITCH
+
+20028
+
+FLOAT MIGRO SWITCH
+
+20028
+
+SOLENOID VALVE
+
+20005)
+
+BOOSTER PUMP
+
+‘VALVE
+(0028)
+
+PUMP
+
+(20005),
+
+20058
+
+PUMP HEAD
+
+20620,
+
+UVLED DRIVER
+
+20624
+
+UviED
+
+\n===== PAGE page-5 =====\n
+UV LED Failure Alarm*
+
+KENT ELEGANT Mineral RO™ Water Purifier has in-built feature that sounds an audible alarm
+if the UV LED failure. This alarm will sound as follows:
+
+2 short beeps after every 3 seconds for 3 minuts. The alarm will repeat after every 2.5 hours.
+
+TL 1 TL 1 TT
+3 Sec. 3 Sec.
+
+In case such an alarm is audible, call KENT service for LED replacement.
+
+Installation Instructions
+
+KENT ELEGANT Mineral RO™ Water Purifier is a product of advanced technology which
+ensures safe and clean drinking water. The purifier is easy and convenient to install.
+
+Recommended Site Preparations:
+
++ Single Phase 100-250V AC, 50-60 Hz. connection not more than 3m away from the point of
+installation of purifier
+
++ Raw water supply with % inch nipple not more than 3m away
+
++ Drain for rejected water not more than 3m away
+
++ Space as per dimensions of the purifier
+
++ Wall/plane surface for mounting two screws and holding the machine
+
++ The system and installation must comply with state and local laws and regulations
+
+Specific Instructions:
+
+* KENT ELEGANT Mineral RO™ Water Purifier is a wall mountable purifier. Make sure that it is
+only mounted on a wall. Avoid installation on wooden and metallic stands
+
++ For optimum performance and minimum inlet pressure required, ensure that the raw water
+supply tank is at least 10 ft above the level at which the purifier is installed
+
++ It is preferable to install the purifier near a sink so that inlet and reject water lines are
+easily available
+
+Installation Procedure:
+Wall Hanging Diagram
+
+Step-1
+al I Al
+— — —* ar
+cS ~ Se
+0) @ (©) 0} ©
+
+1. Paste the central drill sticker on wall at (3.6 Feet to 4.0 Feet from the ground) as per your convenience.
+2. Ensure that sticker is pasted straight on the wall, then drill holes as per the space provided on sticker.
+3. Now, insert the puff up with the help of a hammer.
+4. Screw in two 10X50 self-taping screws, 5.4 inches (138 mm) apart horizontally.
+5. Carefully hang the purifier on the wall with the help of wall-mounting slot holes provided on back
+
+side of the purifier.
+
+Note:
+
+1. If the wall is not straight or the screws are not properly drilled in an even position, it will damage
+your purifier.
+
+2. Keep the device away from heat or direct sunlight.
+
+§
+
+® © (0) io)
+Bs - @& See oe
+eA Be eon
+Figure 1. Figure 2. Figure 3. Figure 4.
+
+1. First fix the SS ball valve (marked as no. 4) to the inch port of the 3-way connector (marked
+as no. 2) as shown in figure 2.
+
+2. Connect the 3-way connector to the raw water supply (marked as no. 1) as shown in the
+figure 3. The 3-way connector is fitted in line with the raw water supply.
+
+3. The other end of the 3-way connector can be connected to a tap (marked as no.3) as shown
+in figure 4. or can be plugged off if not required.
+
+Step-3
+
+1. Now connect one end of the white pipe to SS ball valve and
+another end to the upper push-fit elbow fitting to the left hand side
+of the purifier labelled as WATER IN, as shown in fig 1.
+
+2. Similarly, connect one end of the white pipe to the lower elbow
+fitting connector in tank labelled as REJECT WATER and leave 49] cy
+the other end in the drain, as shown in fig 2.
+
+Step-4
+Before connecting the power supply, it is important that you perform
+the following functions:
+
+1. Open the SS ball valve (Handle parallel to the ball valve) to start
+the flow of water into the purifier, as shown in the figure.
+2. Wait for 2-3 minutes to ensure that the filters are soaked in water.
+
+Step-5
+
+1. Connect the power supply.
+2. Installation is complete.
+
+TDS Adjustment*
+A unique feature in KENT ELEGANT Mineral the screw of the valve anticlockwise; it will
+RO™ Water Purifier is the TDS control valve, result in more mineral content in treated
+
+which is not available in any other domestic
+water purifier till date. This feature allows the
+user to control the content of natural
+minerals (TDS) in purified water.
+
+To increase the TDS level, the user can turn
+
+water. To reduce the TDS level, user can turn
+the screw valve clockwise, it will result in less
+mineral content in treated water. We
+recommend the TDS of the purifier to be
+kept at lowest but not below 50 mg/l.
+
+Starting-up the Purifier
+
++ Switch on the power supply
++ Wait till the storage tank fully fills up”
++ Switch off the power supply
+
++ Drain the storage tank by opening the drain
+plug present at the bottom of the storage
+
+tank so as to remove any dust particles
+present in the pipes and storage tank
+
++ Close the drain plug & switch on the
+power supply
+
+The purifier is ready to use
+
+* Tested & certified by TUV-SUD South Asia (P) Ltd.
+
+™ Tested or certified flushing time - 24hrs.
+\n===== PAGE page-6 =====\n
+Recommended Usage of Rejected Water
+
+Although the rejected water has high concentration of salts, it is absolutely clean and free of
+impurities like chlorine, dirt, sand, etc. which are present in raw water. This rejected water
+usually goes down the drain but if required, can be used for gardening purposes. It has high
+concentration of salts and minerals which accelerates plant growth. Rejected water can also be
+used for cleaning purposes, i.e. cleaning utensils, mopping, etc.
+
+Maintenance
+
+To ensure that the purifier operates at its BEST, routine maintenance must be performed.
+Frequency of the maintenance will greatly depend upon the raw water quality and consumption
+of purified water.
+
++ The storage tank must be drained once in 2 + Replace the RO membrane once in a year
+
+weeks. Open the drain plug present at the
+bottom of the storage tank and drain the
+tank completely. Plug back the drain plug
+and switch on the power supply
+
+Replace the sediment filter & activated
+carbon filter once in 12 months. It is
+
+Replace the UF membrane once in a year
+
+In the event of not using purifier for a long
+time (while going for a holiday, tour etc.),
+make sure that you disconnect the power
+supply, turn off the raw water supply and
+drain the storage tank
+
+recommended to change the FRT along
+
+with the filters
+Note: The Reverse Osmosis system contains a replaceable treatment component critical for
+the effective reduction of total dissolved solids and that product water shall be tested
+periodically to verify that the system is performing properly.
+
+Replacement of spare parts are as under:
+
+-20010 SP Inline Sediment Filter 8"
+
+-20009 SP_ Inline Carbon Filter 8"
+
+-20890 SP RO membrane Welded 7” Housing
+-20004 SP UF Membrane 8” Housing
+
+-20018 SP FRT 550/600
+
+Note: Filters and membrane are consumables. Their replacement time is dependent on the
+quality of raw water and water consumption. They are not covered under the warranty. However,
+if a filter chokes within six months and a membrane within a year, it will be cleaned/ repaired/
+replaced free of cost. Changing the filters and system inspection is available on call. The
+treatment capacity of RO membrane will reduce with time due to clogging of pores of
+membranes.
+
+“This Reverse Osmosis System contains a replaceable component critical to the efficiency of
+the system. Replacement of the reverse osmosis component should be with identical
+specifications as defined by the manufacturer, to ensure the same efficiency and contaminant
+reduction performance.”
+
+Note: In case of UV LED failure the machine sounds an alarm with two beeps. Contact KENT
+Service to replace the UV LED
+
+Important Safety Instructions
+
++ If the supply cord is damaged, it must be replaced by the original part in order to avoid hazard
+
+* Children should be supervised to ensure that they do not play with the appliance
+
+* This appliance is not intended for use by persons (including children) with reduced physical,
+sensory or mental capabilities, or lack of experience and knowledge, unless they have been
+given supervision or instruction concerning use of the appliance by a person responsible for
+their safety
+
+Technical Specifications
+
+Product KENT ELEGANT
+
+Product Code 111097
+
+Product Generic Name Water Purifier
+
+Colour White
+
+Applications Suitable for Purification of Brackish/Tap Water/
+
+Municipal Corporation Water
+
+Purification Production Rate 15 Lihr.*
+Body Material ABS Food Grade Plastic
+Mounting Wall-mounting
+
+Dimensions (mm) 340 (L) x 265 (W) x 505 (H)
+
+Inlet Water Pressure/Temp (Min.) 0.3 kg/em?/10°C
+
+Inlet Water Pressure/Temp (Max.) 4 kg/cm?/40°C,
+
+Min./Max. Operating pH 6.5-8.0
+
+Filter Cartridge Sediment, Activated Carbon, UF
+UV LED Wattage 0.7W
+
+Net Weight 6.62 kg
+
+Storage Capacity 8L
+
+Maximum Duty Cycle 75 Liday
+
+Membrane Type Thin Film Composite RO
+
+UF Membrane 0.1-0.01 Microns
+
+Booster Pump Voltage 24V DC
+
+Total Power Consumption 60 W
+
+Input Power Supply Single Phase 100-250V AC, 50-60 Hz. im}
+
+IP Rating IPX1
+
+* Purification capacity tested for raw water having TDS level of 750 ppm at room temperature.
+
+Testing Information
+
+The System has been tested according to IS 10500:2012 (Standards for drinking water as per
+Bureau of Indian Standards) for reduction of the hazardous substances.

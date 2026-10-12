@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "AIDM Demo Service Center - Lohegaon",
+    "brand": "KENT",
+    "location": "Lohegaon, Pune",
+    "phone": "+91-9000000001",
+    "availability": "Mon-Sat, 9:00 AM - 6:00 PM",
+    "distance_km": 4.2,
+    "available_slots": [
+      "2026-11-15 10:00 AM",
+      "2026-11-15 11:00 AM",
+      "2026-11-15 2:00 PM",
+      "2026-11-16 10:00 AM",
+      "2026-11-16 3:00 PM"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "AIDM Demo Service Hub - Viman Nagar",
+    "brand": "KENT",
+    "location": "Viman Nagar, Pune",
+    "phone": "+91-9000000002",
+    "availability": "Mon-Sat, 10:00 AM - 7:00 PM",
+    "distance_km": 7.8,
+    "available_slots": [
+      "2026-11-15 10:00 AM",
+      "2026-11-15 1:00 PM",
+      "2026-11-15 4:00 PM",
+      "2026-11-16 11:00 AM",
+      "2026-11-16 2:00 PM"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "AIDM Demo Appliance Care - Kharadi",
+    "brand": "KENT",
+    "location": "Kharadi, Pune",
+    "phone": "+91-9000000003",
+    "availability": "Mon-Sat, 9:00 AM - 5:00 PM",
+    "distance_km": 9.5,
+    "available_slots": [
+      "2026-11-15 9:00 AM",
+      "2026-11-15 12:00 PM",
+      "2026-11-15 3:00 PM",
+      "2026-11-16 10:00 AM",
+      "2026-11-16 1:00 PM"
+    ]
+  }
+]
