@@ -3055,3 +3055,304 @@ input:disabled {
     }
 
 }
+
+
+/* =========================================================
+   AIDM — Navy + Teal Theme Override
+   Added 2026-10-13. Keeps the existing layout rules above.
+   ========================================================= */
+
+/* ROOT */
+:root {
+    --bg: #f3f6f9;
+    --surface: #ffffff;
+    --surface-soft: #f7fafc;
+    --navy: #102a43;
+    --navy-light: #243f57;
+    --blue: #087f8c;
+    --blue-dark: #066570;
+    --blue-soft: #e7f5f5;
+    --purple: #536b82;
+    --purple-soft: #edf2f7;
+    --green: #168568;
+    --green-soft: #e8f6f0;
+    --orange: #b7791f;
+    --orange-soft: #fff5df;
+    --red: #c2414b;
+    --red-soft: #fff0f0;
+    --text: #172b3a;
+    --text-secondary: #526579;
+    --text-muted: #718397;
+    --border: #dce5ec;
+    --radius: 16px;
+    --shadow: 0 5px 20px rgba(16, 42, 67, 0.055);
+    --shadow-hover: 0 12px 28px rgba(16, 42, 67, 0.10);
+}
+
+/* PAGE */
+body {
+    background:
+        radial-gradient(circle at 8% 0%, rgba(8, 127, 140, 0.055), transparent 27%),
+        radial-gradient(circle at 92% 8%, rgba(16, 42, 67, 0.045), transparent 25%),
+        var(--bg);
+    color: var(--text);
+}
+
+/* NAVBAR AND BRANDING */
+.aidm-navbar {
+    background: linear-gradient(135deg, #102a43, #163e59);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 6px 25px rgba(16, 42, 67, 0.16);
+}
+
+.brand-icon,
+.agent-logo,
+.ask-aidm-logo {
+    background: linear-gradient(135deg, #087f8c, #18a999);
+    box-shadow: 0 6px 18px rgba(8, 127, 140, 0.24);
+}
+
+/* HERO */
+.dashboard-hero {
+    background: linear-gradient(135deg, #102a43 0%, #164e63 65%, #087f8c 100%);
+    box-shadow: 0 15px 40px rgba(16, 42, 67, 0.16);
+}
+
+.dashboard-hero::before {
+    background: rgba(94, 234, 212, 0.10);
+}
+
+.dashboard-hero::after {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.hero-eyebrow,
+.hero-icon {
+    color: #99f6e4;
+}
+
+.dashboard-hero h1 span {
+    background: linear-gradient(90deg, #5eead4, #99f6e4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* LOADING */
+.aidm-loading {
+    background: var(--blue-soft);
+    border-color: #b9e4e3;
+    color: var(--blue-dark);
+}
+
+/* CARDS */
+.aidm-card {
+    border-color: var(--border);
+    box-shadow: var(--shadow);
+}
+
+.aidm-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.appliance-card,
+.maintenance-card {
+    background: linear-gradient(145deg, #ffffff, #f7fafc);
+}
+
+.service-card {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.service-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* SECTION ICONS */
+.section-icon,
+.section-heading-icon,
+.appliance-main-icon,
+.selection-icon,
+.pipeline-icon {
+    background: var(--blue-soft);
+    color: var(--blue);
+}
+
+.history-icon {
+    background: var(--purple-soft);
+    color: var(--navy-light);
+}
+
+/* FORMS */
+.form-control,
+.form-select,
+.ask-aidm-input {
+    border-color: #cbd8e2;
+}
+
+.form-control:focus,
+.form-select:focus,
+.ask-aidm-input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px rgba(8, 127, 140, 0.12);
+}
+
+/* BUTTONS */
+.primary-btn,
+.ask-aidm-btn {
+    background: linear-gradient(135deg, #087f8c, #066570);
+    box-shadow: 0 6px 16px rgba(8, 127, 140, 0.20);
+}
+
+.primary-btn:hover,
+.ask-aidm-btn:hover {
+    box-shadow: 0 9px 22px rgba(8, 127, 140, 0.27);
+}
+
+.agent-run-btn {
+    background: #243f57;
+}
+
+.confirm-btn {
+    background: #116b54;
+}
+
+/* AGENT WORKFLOW */
+.agent-card::before,
+.ask-aidm-card::before {
+    background: linear-gradient(90deg, #102a43, #087f8c, #5eead4);
+}
+
+.agent-label,
+.ask-aidm-label {
+    color: var(--blue);
+}
+
+.agent-status {
+    background: linear-gradient(90deg, #f7fafc, #edf7f7);
+}
+
+.agent-status-icon {
+    background: var(--purple-soft);
+    color: var(--navy-light);
+}
+
+.agent-pipeline {
+    background: #f7fafc;
+}
+
+.agent-summary-card {
+    border-color: var(--border);
+}
+
+.agent-explanation {
+    background: linear-gradient(135deg, #eaf6f7, #f5f8fb);
+    border-color: #d1e8e8;
+}
+
+.explanation-icon {
+    color: var(--blue);
+}
+
+/* MAINTENANCE AND BOOKING */
+.maintenance-icon,
+.maintenance-status {
+    background: var(--green-soft);
+    color: var(--green);
+}
+
+.booking-confirmation {
+    background: linear-gradient(135deg, #e8f6f0, #edf8f7);
+    border-color: #bfe6d8;
+}
+
+.confirmation-icon,
+.confirmation-label {
+    color: var(--green);
+}
+
+/* ASK AIDM */
+.ask-aidm-card {
+    background: linear-gradient(145deg, #ffffff, #f7fbfc);
+}
+
+.ask-aidm-model-badge {
+    background: var(--blue-soft);
+    border-color: #c9e7e7;
+    color: var(--blue-dark);
+}
+
+.ask-aidm-model-badge::before {
+    background: #18a999;
+    box-shadow: 0 0 0 4px rgba(24, 169, 153, 0.12);
+}
+
+.ask-aidm-input-area {
+    background: linear-gradient(135deg, #f7fafc, #edf7f7);
+}
+
+.ask-aidm-result {
+    border-color: #d1e8e8;
+    box-shadow: 0 6px 20px rgba(8, 127, 140, 0.06);
+}
+
+.ask-aidm-result-header {
+    background: linear-gradient(90deg, #eaf6f7, #f5f8fb);
+    border-bottom-color: #d1e8e8;
+}
+
+.ask-aidm-answer-icon,
+.ask-aidm-source i {
+    color: var(--blue);
+}
+
+.ask-aidm-source {
+    background: #f7fafc;
+}
+
+/* EMPTY STATES AND FEEDBACK */
+.history-empty {
+    border-color: var(--border);
+    background: #f7fafc;
+}
+
+.alert {
+    border-radius: 12px;
+}
+
+/* ACCESSIBILITY: VISIBLE KEYBOARD FOCUS */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(8, 127, 140, 0.65);
+    outline-offset: 2px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .dashboard-hero {
+        background: linear-gradient(135deg, #102a43, #087f8c);
+    }
+
+    .aidm-nav-content {
+        gap: 12px;
+    }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
