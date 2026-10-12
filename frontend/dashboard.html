@@ -1236,6 +1236,28 @@
 
 
         <!-- ==============================================
+             PROACTIVE MAINTENANCE PROPOSALS
+        =============================================== -->
+        <section class="aidm-card">
+            <div class="section-heading">
+                <div class="section-heading-icon"><i class="bi bi-calendar2-check"></i></div>
+                <div>
+                    <div class="small-label">PROACTIVE CARE</div>
+                    <h2>Maintenance Suggestions</h2>
+                    <p>AIDM checks the maintenance schedule and proposes a demo service slot. Nothing is booked until you confirm.</p>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <button type="button" id="refreshMaintenanceProposals" class="btn btn-outline-primary">Refresh suggestions</button>
+                <button type="button" id="scanMaintenanceProposals" class="btn btn-primary">Check maintenance now</button>
+            </div>
+            <div id="maintenanceProposalMessage" role="status" class="mb-3"></div>
+            <div id="maintenanceProposals">
+                <div class="history-empty">Loading maintenance suggestions...</div>
+            </div>
+        </section>
+
+        <!-- ==============================================
              SERVICE CENTERS
         =============================================== -->
 
@@ -1334,6 +1356,7 @@
 ====================================================== -->
 
 <script src="js/dashboard.js"></script>
+<script src="js/maintenance-proposals.js"></script>
 
 </body>
 
